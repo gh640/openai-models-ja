@@ -32,7 +32,7 @@ GPT-3.5 を改善した、自然言語やコードを理解・生成できるモ
 
 | モデル | 説明 | コンテキストウィンドウ | トレーニングデータ |
 | --- | --- | --- | --- |
-| `gpt-4-0125-preview` | **New** 最新の **GPT-4 Turbo** モデル。 [詳細](https://openai.com/blog/new-embedding-models-and-api-updates) | 128,000 トークン | 2023/12 まで |
+| `gpt-4-0125-preview` | **New**<br>最新の **GPT-4 Turbo** モデル。 [詳細](https://openai.com/blog/new-embedding-models-and-api-updates) | 128,000 トークン | 2023/12 まで |
 | `gpt-4-turbo-preview` | 現在 `gpt-4-0125-preview` を指す。 | 128,000 トークン | 2023/12 まで |
 | `gpt-4-1106-preview` | GPT-4 Turbo モデル。プロダクショントラフィック向けではない。 [詳細](https://openai.com/blog/new-models-and-developer-products-announced-at-devday) | 128,000 トークン | 2023/04 まで |
 | `gpt-4-vision-preview` | 画像の理解能力のある GPT-4 。プロダクショントラフィック向けではない。 [詳細](https://openai.com/blog/new-models-and-developer-products-announced-at-devday) | 128,000 トークン | 2023/04 まで |
@@ -49,13 +49,13 @@ GPT-3.5 を改善した、自然言語やコードを理解・生成できるモ
 
 | モデル | 説明 | コンテキストウィンドウ | トレーニングデータ |
 | --- | --- | --- | --- |
-| `gpt-3.5-turbo-0125` | **New** 最新の **GPT 3.5 Turbo** モデル。 [詳細](https://openai.com/blog/new-embedding-models-and-api-updates#:~:text=Other%20new%20models%20and%20lower%20pricing) | 16,385 トークン | 2021/09 まで |
+| `gpt-3.5-turbo-0125` | **New**<br>最新の **GPT 3.5 Turbo** モデル。 [詳細](https://openai.com/blog/new-embedding-models-and-api-updates#:~:text=Other%20new%20models%20and%20lower%20pricing) | 16,385 トークン | 2021/09 まで |
 | `gpt-3.5-turbo` | 現在 `3.5-turbo-0613` を指す。 2024/02/16 に `3.5-turbo-0125` に変更される。 | 4,096 トークン | 2021/09 まで |
 | `gpt-3.5-turbo-1106` | GPT-3.5 Turbo モデル。インストラクションへの対応・ JSON モード・再現可能な出力・パラレルファンクションコーリングなどの改善あり。 [詳細](https://openai.com/blog/new-models-and-developer-products-announced-at-devday) | 16,385 トークン | 2021/09 まで |
 | `gpt-3.5-turbo-instruct` | GPT-3 時代と近い能力。レガシー Completions エンドポイントとの互換性あり、 Chat Completions との互換性なし。 | 4,096 トークン | 2021/09 まで |
-| `gpt-3.5-turbo-16k` | **Legacy** 現在 `gpt-3.5-turbo-16k-0613` を指す。 | 16,385 トークン | 2021/09 まで |
-| `gpt-3.5-turbo-0613` | **Legacy** `gpt-3.5-turbo` の 2023/06/13 時点のスナップショット。 2024/06/13 に deprecated 予定。 | 4,096 トークン | 2021/09 まで |
-| `gpt-3.5-turbo-16k-0613` | **Legacy** `gpt-3.5-16k-turbo` の 2023/06/13 時点のスナップショット。 2024/06/13 に deprecated 予定。 | 16,385 トークン | 2021/09 まで |
+| `gpt-3.5-turbo-16k` | **Legacy**<br>現在 `gpt-3.5-turbo-16k-0613` を指す。 | 16,385 トークン | 2021/09 まで |
+| `gpt-3.5-turbo-0613` | **Legacy**<br>`gpt-3.5-turbo` の 2023/06/13 時点のスナップショット。 2024/06/13 に deprecated 予定。 | 4,096 トークン | 2021/09 まで |
+| `gpt-3.5-turbo-16k-0613` | **Legacy**<br>`gpt-3.5-16k-turbo` の 2023/06/13 時点のスナップショット。 2024/06/13 に deprecated 予定。 | 16,385 トークン | 2021/09 まで |
 
 ## DALL·E
 
@@ -63,7 +63,7 @@ GPT-3.5 を改善した、自然言語やコードを理解・生成できるモ
 
 | モデル | 説明 |
 | --- | --- |
-| `dall-e-3` | **New** 最新の **DALL·E 3** モデル。 2023/11 リリース。 [詳細](https://openai.com/blog/new-models-and-developer-products-announced-at-devday) |
+| `dall-e-3` | **New**<br>最新の **DALL·E 3** モデル。 2023/11 リリース。 [詳細](https://openai.com/blog/new-models-and-developer-products-announced-at-devday) |
 | `dall-e-2` | ひとつ前の DALL·E モデル。 2022/11 リリース。オリジナルモデルよりも 4 倍以上の解像度のリアルで精確な第 2 世代 DALL·E モデル。 |
 
 ## TTS
@@ -73,8 +73,8 @@ TTS は Text-To-Speech の略。
 
 | モデル | 説明 |
 | --- | --- |
-| `tts-1` | **New** 最新の **Text-to-Speech 1** モデル。リアルタイム生成向けでスピード優先。 |
-| `tts-1-hd` | **New** 最新の text-to-Speech 1 HD** モデル。品質優先。 |
+| `tts-1` | **New**<br>最新の **Text-to-Speech 1** モデル。リアルタイム生成向けでスピード優先。 |
+| `tts-1-hd` | **New**<br>最新の text-to-Speech 1 HD** モデル。品質優先。 |
 
 ## Whisper
 
@@ -95,8 +95,8 @@ TTS は Text-To-Speech の略。
 
 | モデル | 説明 | 出力の次元 |
 | --- | --- | --- |
-| `text-embedding-3-large` | **New** **Embedding V3 large** <br>英語とその他の言語の両方で最も能力の高い embedding モデル。 [詳細](https://openai.com/blog/new-embedding-models-and-api-updates) | 3,072 |
-| `text-embedding-3-small` | **New** **Embedding V3 small** <br>第 2 世代の ada embedding モデルからパフォーマンスを改善。 [詳細](https://openai.com/blog/new-embedding-models-and-api-updates) | 1,536 |
+| `text-embedding-3-large` | **New**<br>**Embedding V3 large** <br>英語とその他の言語の両方で最も能力の高い embedding モデル。 [詳細](https://openai.com/blog/new-embedding-models-and-api-updates) | 3,072 |
+| `text-embedding-3-small` | **New**<br>**Embedding V3 small** <br>第 2 世代の ada embedding モデルからパフォーマンスを改善。 [詳細](https://openai.com/blog/new-embedding-models-and-api-updates) | 1,536 |
 | `text-embedding-ada-002` | 第 2 世代で最も能力の高い embedding モデル。 16 個の第 1 世代モデルの置き換え。 [詳細](https://openai.com/blog/new-and-improved-embedding-model) | 1,536 |
 
 ## Moderation
