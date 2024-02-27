@@ -1,6 +1,6 @@
 # OpenAI 社が提供するモデルの一覧（日本語）
 
-**最終更新日: 2024/02/14**
+**最終更新日: 2024/02/27**
 
 OpenAI 社が提供するモデルの一覧です。
 基本的に最新のものが各表の一番上に並んでいます。
@@ -41,6 +41,24 @@ GPT-3.5 を改善した、自然言語やコードを理解・生成できるモ
 | `gpt-4-32k` | 現在 `gpt-4-32k-0613` を指す。 GPT-4 Turbo が優先されたため広く展開されなかった。 | 32,768 トークン | 2021/09 まで |
 | `gpt-4-32k-0613` | `gpt-4-32k` の 2023/06/13 時点のスナップショット。ファンクションコーリングサポートの改善あり。 GPT-4 Turbo が優先されたため広く展開されなかった。 | 32,768 トークン | 2021/09 まで |
 
+### 料金
+
+| モデル | インプット（ 1k トークン） | アウトプット（ 1k トークン） |
+| --- | --- | --- |
+| `gpt-4-0125-preview` | $0.01 | $0.03 |
+| `gpt-4-1106-preview` | $0.01 | $0.03 |
+| `gpt-4-1106-vision-preview` | $0.01 | $0.03 |
+| `gpt-4` | $0.03 | $0.06 |
+| `gpt-4-32k` | $0.06 | $0.12 |
+
+後発の `gpt-4-turbo` が `gpt-4` よりも単価が低いのは間違いではありません。
+
+> GPT-4 Turbo is more capable and has knowledge of world events up to April 2023. It has a 128k context window so it can fit the equivalent of more than 300 pages of text in a single prompt. We also optimized its performance so we are able to offer GPT-4 Turbo at a 3x cheaper price for input tokens and a 2x cheaper price for output tokens compared to GPT-4.
+>
+> [New models and developer products announced at DevDay](https://openai.com/blog/new-models-and-developer-products-announced-at-devday)
+
+画像生成は 150px x 150px で $0.00255 。
+
 多くの基本的なタスクでは GPT-4 と GPT-3.5 の差は大きくない。しかし、より複雑な推論状況では GPT-4 はこれまでのどのモデルよりもはるかに能力が高い。
 
 ## GPT-3.5 Turbo
@@ -57,6 +75,24 @@ GPT-3.5 を改善した、自然言語やコードを理解・生成できるモ
 | `gpt-3.5-turbo-0613` | **Legacy**<br>`gpt-3.5-turbo` の 2023/06/13 時点のスナップショット。 2024/06/13 に deprecated 予定。 | 4,096 トークン | 2021/09 まで |
 | `gpt-3.5-turbo-16k-0613` | **Legacy**<br>`gpt-3.5-16k-turbo` の 2023/06/13 時点のスナップショット。 2024/06/13 に deprecated 予定。 | 16,385 トークン | 2021/09 まで |
 
+### 料金
+
+| モデル | インプット（ 1k トークン） | アウトプット（ 1k トークン） |
+| --- | --- | --- |
+| `gpt-3.5-turbo-0125` | $0.0005 | $0.0015 |
+| `gpt-3.5-turbo-instruct` | $0.0015 | $0.0020 |
+
+## アシスタント API
+
+アシスタント API では各チャットモデルが利用できます。
+
+### 料金
+
+| ツール | インプット |
+| --- | --- |
+| Code interpreter | $0.03 / セッション |
+| Retieval | $0.20 / GB / アシスタント / 日（ 2024/03/01 まで無料） |
+
 ## DALL·E
 
 自然言語のプロンプトを与えて画像を生成・編集できるモデル。
@@ -65,6 +101,18 @@ GPT-3.5 を改善した、自然言語やコードを理解・生成できるモ
 | --- | --- |
 | `dall-e-3` | **New**<br>最新の **DALL·E 3** モデル。 2023/11 リリース。 [詳細](https://openai.com/blog/new-models-and-developer-products-announced-at-devday) |
 | `dall-e-2` | ひとつ前の DALL·E モデル。 2022/11 リリース。オリジナルモデルよりも 4 倍以上の解像度のリアルで精確な第 2 世代 DALL·E モデル。 |
+
+### 料金
+
+| モデル | 品質 | 解像度 | 料金（ 1 画像） |
+| --- | --- | --- | --- |
+| `dall-e-3` | Standard | 1024×1024 | $0.040 |
+|  | Standard | 1024×1792, 1792×1024 | $0.080 |
+|  | HD | 1024×1024 | $0.080 |
+|  | HD | 1024×1792, 1792×1024 | $0.120 |
+| `dall-e-2` |  | 1024×1024 | $0.020 |
+|  |  | 512×512 | $0.018 |
+|  |  | 256×256 | $0.016 |
 
 ## TTS
 
@@ -75,6 +123,13 @@ TTS は Text-To-Speech の略。
 | --- | --- |
 | `tts-1` | **New**<br>最新の **Text-to-Speech 1** モデル。リアルタイム生成向けでスピード優先。 |
 | `tts-1-hd` | **New**<br>最新の text-to-Speech 1 HD** モデル。品質優先。 |
+
+### 料金
+
+| モデル | 料金 |
+| --- | --- |
+| `tts-1` |	$0.015 / 1K 文字 |
+| `tts-1-hd` | $0.030 / 1K 文字 |
 
 ## Whisper
 
@@ -88,6 +143,12 @@ TTS は Text-To-Speech の略。
 
 現在オープンソースバージョンと OpenAI の API で利用できるバージョンに違いは無いが、 API の方は推論過程の最適化により高速化されている。
 
+### 料金
+
+| モデル | 料金 |
+| --- | --- |
+| `whisper-1` |	$0.006 / 分（端数は近い秒に丸められる） |
+
 ## Embeddings
 
 テキストを数値形式に変換できるモデル群。
@@ -98,6 +159,14 @@ TTS は Text-To-Speech の略。
 | `text-embedding-3-large` | **New**<br>**Embedding V3 large** <br>英語とその他の言語の両方で最も能力の高い embedding モデル。 [詳細](https://openai.com/blog/new-embedding-models-and-api-updates) | 3,072 |
 | `text-embedding-3-small` | **New**<br>**Embedding V3 small** <br>第 2 世代の ada embedding モデルからパフォーマンスを改善。 [詳細](https://openai.com/blog/new-embedding-models-and-api-updates) | 1,536 |
 | `text-embedding-ada-002` | 第 2 世代で最も能力の高い embedding モデル。 16 個の第 1 世代モデルの置き換え。 [詳細](https://openai.com/blog/new-and-improved-embedding-model) | 1,536 |
+
+### 料金
+
+| モデル | 使用（ 1k トークン） |
+| --- | --- |
+| `text-embedding-3-large` | $0.00013 |
+| `text-embedding-3-small` | $0.00002 |
+| `ada v2` | $0.00010 |
 
 ## Moderation
 
@@ -120,6 +189,14 @@ TTS は Text-To-Speech の略。
 | --- | --- | --- | --- |
 | `babbage-002` | GPT-3 `ada` と `babbage` ベースモデルの置き換え。 | 16,384 トークン | 2021/09 まで |
 | `davinci-002` | GPT-3 `curie` と `davinci` ベースモデルの置き換え。  | 16,384 トークン | 2021/09 まで |
+
+### 料金
+
+| モデル | 使用（ 1k トークン） |
+| --- | --- |
+| `davinci-002` | $0.0020 |
+| `babbage-002` | $0.0004 |
+
 
 ## データの使用ポリシー
 
@@ -161,8 +238,13 @@ TTS は Text-To-Speech の略。
 | `gpt-4-0314` | `gpt-4-0613` | 早ければ 2024/06/13 |
 | `gpt-4-32k-0314` | `gpt-4-32k-0613` | 早ければ 2024/06/13 |
 
-## 参考文献
+## 公式ページ
 
 - [Models - OpenAI API](https://platform.openai.com/docs/models)
 - [Deprecations - OpenAI API](https://platform.openai.com/docs/deprecations)
+- [Pricing](https://openai.com/pricing)
+
+## その他参考文献
+
 - [OpenAI - Wikipedia](https://en.wikipedia.org/wiki/OpenAI)
+
