@@ -22,7 +22,7 @@ OpenAI 社が提供するモデルの一覧です。
 
 > ## ChatGPT upgrades
 >
-> We are constantly improving our ChatGPT models, and want to make these enhancements available to developers as well. Developers who use the `gpt-3.5-turbo model will always get our recommended stable model, while still having the flexibility to opt for a specific model version. For example, today we’re releasing `gpt-3.5-turbo-0301`, which will be supported through at least June 1st, and we’ll update `gpt-3.5-turbo` to a new stable release in April. The models page will provide switchover updates.
+> We are constantly improving our ChatGPT models, and want to make these enhancements available to developers as well. Developers who use the `gpt-3.5-turbo` model will always get our recommended stable model, while still having the flexibility to opt for a specific model version. For example, today we’re releasing `gpt-3.5-turbo-0301`, which will be supported through at least June 1st, and we’ll update `gpt-3.5-turbo` to a new stable release in April. The models page will provide switchover updates.
 > >
 > https://openai.com/blog/introducing-chatgpt-and-whisper-apis#:~:text=Chat%20guide.-,ChatGPT%20upgrades,-We%20are%20constantly
 
