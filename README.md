@@ -1,6 +1,6 @@
 # OpenAI 社が提供するモデルの一覧（日本語）
 
-**最終更新日: 2024/02/27**
+**最終更新日: 2024/03/04**
 
 OpenAI 社が提供するモデルの一覧です。
 基本的に最新のものが各表の一番上に並んでいます。
@@ -73,7 +73,7 @@ GPT-3.5 を改善した、自然言語やコードを理解・生成できるモ
 | モデル | 説明 | コンテキストウィンドウ | トレーニングデータ |
 | --- | --- | --- | --- |
 | `gpt-3.5-turbo-0125` | **New**<br>最新の **GPT 3.5 Turbo** モデル。 [詳細](https://openai.com/blog/new-embedding-models-and-api-updates#:~:text=Other%20new%20models%20and%20lower%20pricing) | 16,385 トークン | 2021/09 まで |
-| `gpt-3.5-turbo` | 現在 `3.5-turbo-0613` を指す。 2024/02/16 に `3.5-turbo-0125` に変更される。 | 4,096 トークン | 2021/09 まで |
+| `gpt-3.5-turbo` | 現在 `3.5-turbo-0613` を指す。 | 16,385 トークン | 2021/09 まで |
 | `gpt-3.5-turbo-1106` | GPT-3.5 Turbo モデル。インストラクションへの対応・ JSON モード・再現可能な出力・パラレルファンクションコーリングなどの改善あり。 [詳細](https://openai.com/blog/new-models-and-developer-products-announced-at-devday) | 16,385 トークン | 2021/09 まで |
 | `gpt-3.5-turbo-instruct` | GPT-3 時代と近い能力。レガシー Completions エンドポイントとの互換性あり、 Chat Completions との互換性なし。 | 4,096 トークン | 2021/09 まで |
 | `gpt-3.5-turbo-16k` | **Legacy**<br>現在 `gpt-3.5-turbo-16k-0613` を指す。 | 16,385 トークン | 2021/09 まで |
