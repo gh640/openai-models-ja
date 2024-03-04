@@ -18,7 +18,7 @@ OpenAI 社が提供するモデルの一覧です。
 - `gpt-4`
 - `gpt-3.5-turbo`
 
-実際に使われたモデルの情報はレスポンスオブジェクトに含まれている（例: `gpt-3.5-turbo-0613` ）。
+実際に使われたモデルの情報はレスポンスオブジェクトで確認できる。
 
 > ## ChatGPT upgrades
 >
@@ -56,7 +56,7 @@ GPT-3.5 を改善した、自然言語やコードを理解・生成できるモ
 | `gpt-4-32k` | $0.06 | $0.12 |
 
 > [!NOTE]
-> 後発の `gpt-4-turbo` が `gpt-4` よりも単価が低いのは間違いではありません。
+> 後発の `gpt-4-turbo` の方が `gpt-4` よりも単価が低いのは間違いではありません。
 
 > GPT-4 Turbo is more capable and has knowledge of world events up to April 2023. It has a 128k context window so it can fit the equivalent of more than 300 pages of text in a single prompt. We also optimized its performance so we are able to offer GPT-4 Turbo at a 3x cheaper price for input tokens and a 2x cheaper price for output tokens compared to GPT-4.
 >
@@ -73,7 +73,7 @@ GPT-3.5 を改善した、自然言語やコードを理解・生成できるモ
 | モデル | 説明 | コンテキストウィンドウ | トレーニングデータ |
 | --- | --- | --- | --- |
 | `gpt-3.5-turbo-0125` | **New**<br>最新の **GPT 3.5 Turbo** モデル。 [詳細](https://openai.com/blog/new-embedding-models-and-api-updates#:~:text=Other%20new%20models%20and%20lower%20pricing) | 16,385 トークン | 2021/09 まで |
-| `gpt-3.5-turbo` | 現在 `3.5-turbo-0613` を指す。 | 16,385 トークン | 2021/09 まで |
+| `gpt-3.5-turbo` | 現在 `3.5-turbo-0125` を指す。 | 16,385 トークン | 2021/09 まで |
 | `gpt-3.5-turbo-1106` | GPT-3.5 Turbo モデル。インストラクションへの対応・ JSON モード・再現可能な出力・パラレルファンクションコーリングなどの改善あり。 [詳細](https://openai.com/blog/new-models-and-developer-products-announced-at-devday) | 16,385 トークン | 2021/09 まで |
 | `gpt-3.5-turbo-instruct` | GPT-3 時代と近い能力。レガシー Completions エンドポイントとの互換性あり、 Chat Completions との互換性なし。 | 4,096 トークン | 2021/09 まで |
 | `gpt-3.5-turbo-16k` | **Legacy**<br>現在 `gpt-3.5-turbo-16k-0613` を指す。 | 16,385 トークン | 2021/09 まで |
@@ -132,7 +132,7 @@ TTS は Text-To-Speech の略。
 | モデル | 説明 |
 | --- | --- |
 | `tts-1` | **New**<br>最新の **Text-to-Speech 1** モデル。リアルタイム生成向けでスピード優先。 |
-| `tts-1-hd` | **New**<br>最新の text-to-Speech 1 HD** モデル。品質優先。 |
+| `tts-1-hd` | **New**<br>最新の **Text-to-Speech 1 HD** モデル。品質優先。 |
 
 ### 料金
 
@@ -180,7 +180,7 @@ TTS は Text-To-Speech の略。
 
 ## Moderation
 
-テキストがセンシティブであったり安全でなかったりするかを検出できるファインチューンされたモデル。
+テキストがセンシティブであったり安全でなかったりすることを検出できる、ファインチューニングされたモデル。
 
 | モデル | 説明 | 最大トークン |
 | --- | --- | --- |
@@ -192,7 +192,7 @@ TTS は Text-To-Speech の略。
 
 自然言語やコードを理解・生成できるがインストラクションでの学習ができないモデル群。
 オリジナルの GPT-3 ベースモデルの置き換えとして作られた。
-レガシーな COmpletions API を使う。
+レガシーな Completions API を使う。
 ほとんどのユーザーにはこれらではなく GPT-3.5 か GPT-4 の利用が推奨される。
 
 | モデル | 説明 | 最大トークン | トレーニングデータ |
