@@ -14,28 +14,35 @@ OpenAI 社が提供するモデルの一覧です。
 
 以下のモデルはそのときどきの最新版のモデルを指す。
 
-- `gpt-4-turbo-preview`
+- `gpt-4-turbo`
 - `gpt-4`
 - `gpt-3.5-turbo`
 
 実際に使われたモデルの情報はレスポンスオブジェクトに含まれている（例: `gpt-3.5-turbo-0613` ）。
 
-> ## ChatGPT upgrades
->
-> We are constantly improving our ChatGPT models, and want to make these enhancements available to developers as well. Developers who use the `gpt-3.5-turbo` model will always get our recommended stable model, while still having the flexibility to opt for a specific model version. For example, today we’re releasing `gpt-3.5-turbo-0301`, which will be supported through at least June 1st, and we’ll update `gpt-3.5-turbo` to a new stable release in April. The models page will provide switchover updates.
-> >
-> https://openai.com/blog/introducing-chatgpt-and-whisper-apis#:~:text=Chat%20guide.-,ChatGPT%20upgrades
+> ## Continuous model upgrades
+> 
+> `gpt-4-turbo`, `gpt-4`, and `gpt-3.5-turbo` point to their respective latest model version. You can verify this by looking at the [response object](https://platform.openai.com/docs/api-reference/chat/object) after sending a request. The response will include the specific model version used (e.g. `gpt-3.5-turbo-0613` ).
+> 
+> We also offer pinned model versions that developers can continue using for at least three months after an updated model has been introduced. With the new cadence of model updates, we are also giving people the ability to contribute evals to help us improve the model for different use cases. If you are interested, check out the [OpenAI Evals](https://github.com/openai/evals) repository.
+> 
+> Learn more about model deprecation on our [deprecation page](https://platform.openai.com/docs/deprecations).
+> 
+> https://platform.openai.com/docs/models/continuous-model-upgrades
 
-## GPT-4 と GPT-4 Turbo
+## GPT-4 Turbo と GPT-4
 
-GPT-3.5 を改善した、自然言語やコードを理解・生成できるモデル群。
+大規模なマルチモーダル（テキスト・画像の入力とテキストの出力ができる）モデル。
 
 | モデル | 説明 | コンテキストウィンドウ | トレーニングデータ |
 | --- | --- | --- | --- |
-| `gpt-4-0125-preview` | **New**<br>最新の **GPT-4 Turbo** モデル。 [詳細](https://openai.com/blog/new-embedding-models-and-api-updates) | 128,000 トークン | 2023/12 まで |
+| `gpt-4-turbo` | **New**<br>GPT-4 Turbo with Vision モデル。ビジョン機能付きの最新の GPT-4 Turbo 。ビジョンリクエストで JSON モードとファンクションコーリングを利用可。 | 128,000 トークン | 2023/12 まで |
+| `gpt-4-turbo-2024-04-09` | GPT-4 Turbo with Vision モデル。ビジョンリクエストで JSON モードとファンクションコーリングを利用可。現在 `gpt-4-turbo-2024-04-09` を指す。 | 128,000 トークン | 2023/12 まで |
 | `gpt-4-turbo-preview` | 現在 `gpt-4-0125-preview` を指す。 | 128,000 トークン | 2023/12 まで |
+| `gpt-4-0125-preview` | GPT-4 Turbo preview モデル。 [詳細](https://openai.com/blog/new-embedding-models-and-api-updates) | 128,000 トークン | 2023/12 まで |
 | `gpt-4-1106-preview` | GPT-4 Turbo モデル。プロダクショントラフィック向けではない。 [詳細](https://openai.com/blog/new-models-and-developer-products-announced-at-devday) | 128,000 トークン | 2023/04 まで |
-| `gpt-4-vision-preview` | 画像の理解能力のある GPT-4 。プロダクショントラフィック向けではない。 [詳細](https://openai.com/blog/new-models-and-developer-products-announced-at-devday) | 128,000 トークン | 2023/04 まで |
+| `gpt-4-vision-preview` | 画像の理解能力のある GPT-4 。プロダクショントラフィック向けではない。現在 `gpt-4-1106-vision-preview` を指す。 [詳細](https://openai.com/blog/new-models-and-developer-products-announced-at-devday) | 128,000 トークン | 2023/04 まで |
+| `gpt-4-1106-vision-preview` | 画像の理解能力のある GPT-4 。プレビューモデルでありこのモデルではなく `gpt-4-turbo` の利用を推奨。 | 128,000 トークン | 2023/04 まで |
 | `gpt-4` | 現在 `gpt-4-0613` を指す。 | 8,192 トークン | 2021/09 まで |
 | `gpt-4-0613` | `gpt-4` の 2023/06/13 時点のスナップショット。ファンクションコーリングサポートの改善あり。 | 8,192 トークン | 2021/09 まで |
 | `gpt-4-32k` | 現在 `gpt-4-32k-0613` を指す。 GPT-4 Turbo が優先されたため広く展開されなかった。 | 32,768 トークン | 2021/09 まで |
@@ -49,9 +56,7 @@ GPT-3.5 を改善した、自然言語やコードを理解・生成できるモ
 
 | モデル | インプット（ 1k トークン） | アウトプット（ 1k トークン） |
 | --- | --- | --- |
-| `gpt-4-0125-preview` | $0.01 | $0.03 |
-| `gpt-4-1106-preview` | $0.01 | $0.03 |
-| `gpt-4-1106-vision-preview` | $0.01 | $0.03 |
+| `gpt-4-turbo-2024-04-09` | $0.01 | $0.03 |
 | `gpt-4` | $0.03 | $0.06 |
 | `gpt-4-32k` | $0.06 | $0.12 |
 
