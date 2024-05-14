@@ -23,6 +23,10 @@ class Model:
     owned_by: str
     created: datetime
 
+    @classmethod
+    def fieldnames(cls) -> list[str]:
+        return [x.name for x in fields(cls)]
+
 
 def main():
     # 取得する
@@ -42,7 +46,7 @@ def main():
     models.sort(key=lambda x: x.created, reverse=True)
 
     # 出力する
-    writer = csv.DictWriter(sys.stdout, fieldnames=[x.name for x in fields(Model)])
+    writer = csv.DictWriter(sys.stdout, fieldnames=Model.fieldnames())
     writer.writeheader()
     writer.writerows([asdict(m) for m in models])
 
