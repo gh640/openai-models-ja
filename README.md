@@ -1,6 +1,6 @@
 # OpenAI 社が提供するモデルの一覧（日本語）
 
-**最終更新日: 2024/05/14**
+**最終更新日: 2024/07/22**
 
 OpenAI 社が提供するモデルの一覧です。
 基本的に最新のものが各表の一番上に並んでいます。
@@ -12,29 +12,21 @@ OpenAI 社が提供するモデルの一覧です。
 
 ## フラッグシップモデル
 
-### GPT-4o **New**
+### GPT-4o
 
-最も高速なフラッグシップモデル
+最も高性能なフラッグシップモデル（複雑・マルチステップなタスク向き）
 
 - 入力: テキスト・画像 / 出力: テキスト
-- コンテキスト長: 12.8 万
+- コンテキスト長: 1.28 万
 - 入力: 5 ドル / 出力: 15 ドル
 
-### GPT-4 Turbo
+### GPT-4o mini **New**
 
-ひとつ前の高い知能のモデル
+安くて性能の高い小さなモデル（軽量なタスク向き）
 
 - 入力: テキスト・画像 / 出力: テキスト
-- コンテキスト長: 12.8 万
-- 入力: 10 ドル / 出力: 30 ドル
-
-### GPT-3.5 Turbo
-
-シンプルなタスクに向いた高速で低価格のモデル
-
-- 入力: テキスト / 出力: テキスト
-- コンテキスト長: 1.6 万
-- 入力: 0.50 ドル / 出力: 1.50 ドル
+- コンテキスト長: 1.28 万
+- 入力: 0.15 ドル / 出力 0.60 ドル
 
 コストはいずれも 100 万トークンあたり。
 
@@ -43,6 +35,7 @@ OpenAI 社が提供するモデルの一覧です。
 以下のモデルはそのときどきの最新版のモデルを指す。
 
 - `gpt-4o`
+- `gpt-4o-mini`
 - `gpt-4-turbo`
 - `gpt-4`
 - `gpt-3.5-turbo`
@@ -51,13 +44,11 @@ OpenAI 社が提供するモデルの一覧です。
 
 > ## Continuous model upgrades
 > 
-> `gpt-4o`, `gpt-4-turbo`, `gpt-4`, and `gpt-3.5-turbo` point to their respective latest model version. You can verify this by looking at the [response object](https://platform.openai.com/docs/api-reference/chat/object) after sending a request. The response will include the specific model version used (e.g. gpt-3.5-turbo-0613).
+> `gpt-4o`, `gpt-4o-mini`, `gpt-4-turbo`, `gpt-4`, and `gpt-3.5-turbo` point to their respective latest model version. You can verify this by looking at the [response object](https://platform.openai.com/docs/api-reference/chat/object) after sending a request. The response will include the specific model version used (e.g. `gpt-3.5-turbo-1106`).
 > 
-> We also offer pinned model versions that developers can continue using for at least three months after an updated model has been introduced. With the new cadence of model updates, we are also giving people the ability to contribute evals to help us improve the model for different use cases. If you are interested, check out the [OpenAI Evals](https://github.com/openai/evals) repository.
+> We also offer pinned model versions that developers can continue using for at least three months after an updated model has been introduced. With the new cadence of model updates, we are also giving people the ability to contribute evals to help us improve the model for different use cases. If you are interested, check out the [[OpenAI Evals](https://github.com/openai/evals) repository.
 > 
 > Learn more about model deprecation on our [deprecation page](https://platform.openai.com/docs/deprecations).
->
-> https://platform.openai.com/docs/models/continuous-model-upgrades
 
 ## GPT-4o
 
@@ -68,17 +59,17 @@ GPT-4 Turbo と同じ高い知能を持ちながらはるかに効率的で、�
 
 | モデル | 説明 | コンテキストウィンドウ | トレーニングデータ |
 | --- | --- | --- | --- |
-| `gpt-4o` | **New**<br>GTP-4o モデル。最も先進的なマルチモーダルフラッグシップモデル。 GPT-4 Trubo よりも安価で高速。現在 `gpt-4o-2024-05-13` を指す。 | 128,000 トークン | 2023/10 まで。 |
-| `gpt-4o-2024-05-13` | 現在 `gpt-4o` が指すモデル。 | 128,000 トークン | 2023/10 まで。 |
+| `gpt-4o` | GPT-4o モデル。最も先進的なマルチモーダルフラッグシップモデル。 GPT-4 Trubo よりも安価で高速。現在 `gpt-4o-2024-05-13` を指す。 | 128,000 トークン | 2023/10 まで |
+| `gpt-4o-2024-05-13` | 現在 `gpt-4o` が指すモデル | 128,000 トークン | 2023/10 まで |
 
 ### 料金
 
-| モデル | インプット（ 1k トークン） | アウトプット（ 1k トークン） |
+| モデル | インプット（ 1M トークン） | アウトプット（ 1M トークン） |
 | --- | --- | --- |
-| `gpt-4o` | $0.005 | $0.015 |
-| `gpt-4o-2024-05-13` | $0.005 | $0.015 |
+| `gpt-4o` | $5 | $15 |
+| `gpt-4o-2024-05-13` | $5 | $15 |
 
-画像生成は 150px x 150px で $0.001275 。
+画像入力は 150px x 150px で $0.001275 。
 
 インプット・アウトプットともに価格は GPT 4 Turbo の 50% で、トークン化効率も大幅に向上している。
 
@@ -89,23 +80,40 @@ GPT-4 Turbo と同じ高い知能を持ちながらはるかに効率的で、�
 > 
 > [Hello GPT-4o | OpenAI](https://openai.com/index/hello-gpt-4o/)
 
+## GPT-4o mini
+
+OpenAI が提供する、小さなモデルカテゴリにおける最も先進的なモデル。
+そしてこれまでで最も安いモデルでもある。
+`gpt-3.5-turbo` と同等に高速でありながらよりも高い性能を持つ。
+
+| モデル | 説明 | コンテキストウィンドウ | トレーニングデータ |
+| --- | --- | --- | --- |
+| `gpt-4o-mini` | **New**<br>安くて性能の高い小さなモデル。現在 `gpt-4o-mini-2024-07-18` を指す。 | 128,000 トークン | 2023/10 まで |
+| `gpt-4o-mini-2024-07-18` | 現在 `gpt-4o-mini` が指すモデル | 128,000 トークン | 2023/10 まで |
+
+### 料金
+
+| モデル | インプット（ 1M トークン） | アウトプット（ 1M トークン） |
+| --- | --- | --- |
+| `gpt-4o-mini` | $0.15 | $0.60 |
+| `gpt-4o-mini-2024-07-18` | $0.15 | $0.60 |
+
+画像入力は 150px x 150px で $0.001275 （ `gpt-4o` と同じ）。
+
 ## GPT-4 Turbo と GPT-4
 
 大規模なマルチモーダル（テキスト・画像の入力とテキストの出力ができる）モデル。
 
 | モデル | 説明 | コンテキストウィンドウ | トレーニングデータ |
 | --- | --- | --- | --- |
-| `gpt-4-turbo` | **New**<br>GPT-4 Turbo with Vision モデル。ビジョン機能付きの最新の GPT-4 Turbo 。ビジョンリクエストで JSON モードとファンクションコーリングを利用可。現在 `gpt-4-turbo-2024-04-09` を指す。 | 128,000 トークン | 2023/12 まで |
+| `gpt-4-turbo` | GPT-4 Turbo with Vision モデル。ビジョン機能付きの最新の GPT-4 Turbo 。ビジョンリクエストで JSON モードとファンクションコーリングを利用可。現在 `gpt-4-turbo-2024-04-09` を指す。 | 128,000 トークン | 2023/12 まで |
 | `gpt-4-turbo-2024-04-09` | GPT-4 Turbo with Vision モデル。ビジョンリクエストで JSON モードとファンクションコーリングを利用可。 | 128,000 トークン | 2023/12 まで |
 | `gpt-4-turbo-preview` | 現在 `gpt-4-0125-preview` を指す。 | 128,000 トークン | 2023/12 まで |
 | `gpt-4-0125-preview` | GPT-4 Turbo preview モデル。 [詳細](https://openai.com/index/new-embedding-models-and-api-updates/) | 128,000 トークン | 2023/12 まで |
 | `gpt-4-1106-preview` | GPT-4 Turbo モデル。プロダクショントラフィック向けではない。 [詳細](https://openai.com/index/new-models-and-developer-products-announced-at-devday/) | 128,000 トークン | 2023/04 まで |
-| `gpt-4-vision-preview` | 画像の理解能力のある GPT-4 。プロダクショントラフィック向けではない。現在 `gpt-4-1106-vision-preview` を指す。 [詳細](https://openai.com/index/new-models-and-developer-products-announced-at-devday/) | 128,000 トークン | 2023/04 まで |
-| `gpt-4-1106-vision-preview` | 画像の理解能力のある GPT-4 。プレビューモデルでありこのモデルではなく `gpt-4-turbo` の利用を推奨。 | 128,000 トークン | 2023/04 まで |
 | `gpt-4` | 現在 `gpt-4-0613` を指す。 | 8,192 トークン | 2021/09 まで |
 | `gpt-4-0613` | `gpt-4` の 2023/06/13 時点のスナップショット。ファンクションコーリングサポートの改善あり。 | 8,192 トークン | 2021/09 まで |
-| `gpt-4-32k` | 現在 `gpt-4-32k-0613` を指す。 GPT-4 Turbo が優先されたため広く展開されなかった。 | 32,768 トークン | 2021/09 まで |
-| `gpt-4-32k-0613` | `gpt-4-32k` の 2023/06/13 時点のスナップショット。ファンクションコーリングサポートの改善あり。 GPT-4 Turbo が優先されたため広く展開されなかった。 | 32,768 トークン | 2021/09 まで |
+| `gpt-4-0314` | **Legacy**<br>`gpt-4` の 2023/03/14 時点のスナップショット。 | 8,192 トークン | 2021/09 まで |
 
 > [!TIP]
 > モデル名に 4 桁の数字が入っているものはリリース日の月日を表すようです（少し場当たり的に付けられている感じがするので将来的にルールがかわるかもしれません）。
@@ -113,13 +121,13 @@ GPT-4 Turbo と同じ高い知能を持ちながらはるかに効率的で、�
 
 ### 料金
 
-| モデル | インプット（ 1k トークン） | アウトプット（ 1k トークン） |
+| モデル | インプット（ 1M トークン） | アウトプット（ 1M トークン） |
 | --- | --- | --- |
-| `gpt-4-turbo-2024-04-09` | $0.01 | $0.03 |
-| `gpt-4` | $0.03 | $0.06 |
-| `gpt-4-32k` | $0.06 | $0.12 |
+| `gpt-4-turbo-2024-04-09` | $10 | $30 |
+| `gpt-4` | $30 | $60 |
+| `gpt-4-32k` | $60 | $120 |
 
-画像生成は 150px x 150px で $0.00255 。
+画像入力は 150px x 150px で $0.00255 。
 
 多くの基本的なタスクでは GPT-4 と GPT-3.5 の差は大きくない。しかし、より複雑な推論状況では GPT-4 はこれまでのどのモデルよりもはるかに能力が高い。
 
@@ -150,10 +158,10 @@ GPT-3.5 を改善した、自然言語やコードを理解・生成できるモ
 
 ### 料金
 
-| モデル | インプット（ 1k トークン） | アウトプット（ 1k トークン） |
+| モデル | インプット（ 1M トークン） | アウトプット（ 1M トークン） |
 | --- | --- | --- |
-| `gpt-3.5-turbo-0125` | $0.0005 | $0.0015 |
-| `gpt-3.5-turbo-instruct` | $0.0015 | $0.0020 |
+| `gpt-3.5-turbo-0125` | $0.5 | $1.5 |
+| `gpt-3.5-turbo-instruct` | $1.5 | $2.0 |
 
 ## アシスタント API
 
@@ -297,6 +305,16 @@ TTS は Text-To-Speech の略。
 
 > [!NOTE]
 > シャットダウン日が過ぎているものは除外しています。
+
+## 2024/06/06: GPT-4-32K とビジョンプレビューモデル
+
+| モデル | 推奨される移行先 | シャットダウン日 |
+| --- | --- | --- |
+| `gpt-4-32k` | `gpt-4o` | 2025/06/06 |
+| `gpt-4-32k-0613` | `gpt-4o` | 2025/06/06 |
+| `gpt-4-32k-0314` | `gpt-4o` | 2025/06/06 |
+| `gpt-4-vision-preview` | `gpt-4o` | 2025/12/06 |
+| `gpt-4-1106-vision-preview` | `gpt-4o` | 2025/12/06 |
 
 ### 2023/11/06: チャットモデルのアップデート
 
