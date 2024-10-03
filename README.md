@@ -1,6 +1,6 @@
 # OpenAI 社が提供するモデルの一覧（日本語）
 
-**最終更新日: 2024/09/13**
+**最終更新日: 2024/10/04**
 
 OpenAI 社が提供するモデルの一覧です。
 基本的に最新のものが各表の一番上に並んでいます。
@@ -20,7 +20,7 @@ OpenAI 社が提供するモデルの一覧です。
 - コンテキスト長: 1.28 万
 - 入力: 5 ドル / 出力: 15 ドル
 
-### GPT-4o mini **New**
+### GPT-4o mini
 
 安くて性能の高い小さなモデル（軽量なタスク向き）
 
@@ -54,9 +54,7 @@ OpenAI 社が提供するモデルの一覧です。
 
 > ## Continuous model upgrades
 > 
-> `gpt-4o`, `gpt-4o-mini`, `gpt-4-turbo`, `gpt-4`, and `gpt-3.5-turbo` point to their respective latest model version. You can verify this by looking at the [response object](https://platform.openai.com/docs/api-reference/chat/object) after sending a request. The response will include the specific model version used (e.g. `gpt-3.5-turbo-1106`).
-> 
-> We also offer pinned model versions that developers can continue using for at least three months after an updated model has been introduced. With the new cadence of model updates, we are also giving people the ability to contribute evals to help us improve the model for different use cases. If you are interested, check out the [[OpenAI Evals](https://github.com/openai/evals) repository.
+> `gpt-4o`, `gpt-4o-mini`, `gpt-4-turbo`, `gpt-4`, and `gpt-3.5-turbo` point to their respective latest model version. You can verify this by looking at the [response object](https://platform.openai.com/docs/api-reference/chat/object) after sending a request. The response will include the specific model version used (e.g. `gpt-3.5-turbo-1106`). The `chatgpt-4o-latest` model version continuously points to the version of [GPT-4o](https://chatgpt.com/) used in ChatGPT, and is updated frequently. With the exception of `chatgpt-4o-latest`, we offer pinned model versions that developers can continue using for at least three months after an updated model has been introduced.
 > 
 > Learn more about model deprecation on our [deprecation page](https://platform.openai.com/docs/deprecations).
 
@@ -70,8 +68,8 @@ GPT-4 Turbo と同じ高い知能を持ちながらはるかに効率的で、�
 モデル | 説明 | コンテキストウィンドウ | 最大出力トークン | トレーニングデータ
 --- | --- | --- | --- | ---
 `chatgpt-4o-latest` | ChatGPT で使用される GPT-4o のバージョンに継続的にアップデートされるダイナミックなモデル | 128,000 | 16,384 | 2024/10 まで
+`gpt-4o` | GPT-4o モデル。最も先進的なマルチモーダルフラッグシップモデル。 GPT-4 Trubo よりも安価で高速。現在 `gpt-4o-2024-08-06` を指す。 | 128,000 | 16,384 | 2023/10 まで
 `gpt-4o-2024-08-06` | Structured Outputs をサポートする最新のスナップショット | 128,000 | 16,384 | 2024/10 まで
-`gpt-4o` | GPT-4o モデル。最も先進的なマルチモーダルフラッグシップモデル。 GPT-4 Trubo よりも安価で高速。現在 `gpt-4o-2024-05-13` を指す。 | 128,000 | 4,096 | 2023/10 まで
 `gpt-4o-2024-05-13` | 現在 `gpt-4o` が指すモデル | 128,000 | 4,096 | 2023/10 まで
 
 ### 料金
@@ -79,17 +77,20 @@ GPT-4 Turbo と同じ高い知能を持ちながらはるかに効率的で、�
 モデル | インプット（ 1M トークン） | アウトプット（ 1M トークン）
 --- | --- | ---
 `chatgpt-4o-latest` | $5 | $15
+`gpt-4o` | $2.5 | $10
 `gpt-4o-2024-08-06` | $2.5 | $10
-`gpt-4o` | $5 | $15
 `gpt-4o-2024-05-13` | $5 | $15
+
+> [!NOTE]
+> `gpt-4o` と `gpt-4o-2024-08-06` にはインプットトークンのキャッシュ機能がある。キャッシュされたトークンは半額（ 50% ）。
 
 画像入力は 150px x 150px に対して:
 
 モデル | 価格
 --- | ---
 `chatgpt-4o-latest` | $0.001275
+`gpt-4o` | $0.000638
 `gpt-4o-2024-08-06` | $0.000638
-`gpt-4o` | $0.001275
 `gpt-4o-2024-05-13` | $0.001275
 
 インプット・アウトプットともに価格は GPT 4 Turbo の 50% で、トークン化効率も大幅に向上している。
@@ -116,7 +117,7 @@ OpenAI が提供する、小さなモデルカテゴリにおける最も先進�
 
 | モデル | 説明 | コンテキストウィンドウ | 最大出力トークン | トレーニングデータ |
 | --- | --- | --- | --- | --- |
-| `gpt-4o-mini` | **New**<br>安くて性能の高い小さなモデル。現在 `gpt-4o-mini-2024-07-18` を指す。 | 128,000 | 16,384 | 2023/10 まで |
+| `gpt-4o-mini` | 安くて性能の高い小さなモデル。現在 `gpt-4o-mini-2024-07-18` を指す。 | 128,000 | 16,384 | 2023/10 まで |
 | `gpt-4o-mini-2024-07-18` | 現在 `gpt-4o-mini` が指すモデル | 128,000 | 16,384 | 2023/10 まで |
 
 ### 料金
@@ -126,7 +127,39 @@ OpenAI が提供する、小さなモデルカテゴリにおける最も先進�
 | `gpt-4o-mini` | $0.15 | $0.60 |
 | `gpt-4o-mini-2024-07-18` | $0.15 | $0.60 |
 
+> [!NOTE]
+> `gpt-4o-mini` と `gpt-4o-mini-2024-07-18` にはインプットトークンのキャッシュ機能がある。キャッシュされたトークンは半額（ 50% ）。
+
 画像入力は 150px x 150px で $0.001275 （ `gpt-4o` と同じ）。
+
+## GPT-4o Realtime **Beta**
+
+GPT-4o Realtime モデルのプレビューリリース。
+WebSocket インタフェースを使った音声とテキストの入力に反応できる。
+詳しくは [Realtime API ガイド](https://platform.openai.com/docs/guides/realtime) 。
+
+| モデル | 説明 | コンテキストウィンドウ | 最大出力トークン | トレーニングデータ |
+| --- | --- | --- | --- | --- |
+| `gpt-4o-realtime-preview` | Realtime API のプレビューリリース | 128,000 | 4,096 | 2023/10 まで
+| `gpt-4o-realtime-preview-2024-10-01` | Realtime API モデルの現在のスナップショット | 128,000 | 4,096 | 2023/10 まで
+
+### 料金
+
+テキスト:
+
+| モデル | インプット（ 1M トークン） | アウトプット（ 1M トークン） |
+| --- | --- | --- |
+| `gpt-4o-realtime-preview` | $5 | $20 |
+| `gpt-4o-realtime-preview-2024-10-01` |  $5 | $20 |
+
+音声:
+
+| モデル | インプット（ 1M トークン） | アウトプット（ 1M トークン） |
+| --- | --- | --- |
+| `gpt-4o-realtime-preview` | $100 | $200 |
+| `gpt-4o-realtime-preview-2024-10-01` |  $100 | $200 |
+
+音声の 1 分あたりの大体の価格は入力は $0.06 、出力は $0.24 。
 
 ## o1-preview と o1-mini
 
@@ -233,7 +266,7 @@ GPT-3.5 を改善した、自然言語やコードを理解・生成できるモ
 
 | モデル | 説明 |
 | --- | --- |
-| `dall-e-3` | **New**<br>最新の **DALL·E 3** モデル。 2023/11 リリース。 [詳細](https://openai.com/index/new-models-and-developer-products-announced-at-devday/) |
+| `dall-e-3` | 最新の **DALL·E 3** モデル。 2023/11 リリース。 [詳細](https://openai.com/index/new-models-and-developer-products-announced-at-devday/) |
 | `dall-e-2` | ひとつ前の DALL·E モデル。 2022/11 リリース。オリジナルモデルよりも 4 倍以上の解像度のリアルで精確な第 2 世代 DALL·E モデル。 |
 
 ### 料金
@@ -255,8 +288,8 @@ TTS は Text-To-Speech の略。
 
 | モデル | 説明 |
 | --- | --- |
-| `tts-1` | **New**<br>最新の **Text-to-Speech 1** モデル。リアルタイム生成向けでスピード優先。 |
-| `tts-1-hd` | **New**<br>最新の **Text-to-Speech 1 HD** モデル。品質優先。 |
+| `tts-1` | 最新の Text-to-Speech モデル。リアルタイム生成向けでスピード優先。 |
+| `tts-1-hd` | 最新の Text-to-Speech 1 モデル。品質優先。 |
 
 ### 料金
 
@@ -308,6 +341,8 @@ TTS は Text-To-Speech の略。
 
 | モデル | 説明 | 最大トークン |
 | --- | --- | --- |
+| `omni-moderation-latest` | 現在 `omni-moderation-2024-09-26` を指す。 | 32,768 |
+| `omni-moderation-2024-09-26` | マルチモーダルもでレーションモデルの最新バージョン。テキストと画像の分析が可能。 | 32,768 |
 | `text-moderation-latest` | 現在 `text-moderation-007` を指す。 | 32,768 |
 | `text-moderation-stable` | 現在 `text-moderation-007` を指す。 | 32,768 |
 | `text-moderation-007` | すべてのカテゴリーで最も能力の高い moderation モデル。 [詳細](https://openai.com/index/new-embedding-models-and-api-updates/) | 32,768 |
@@ -341,13 +376,15 @@ TTS は Text-To-Speech の略。
 
 このデータポリシーは API 経由ではない ChatGPT や DALL·E Labs のサービスには適用されない（つまり、 ChatGPT や DALL·E Labs でユーザーが送信したデータはモデルのトレーニングに使用されることがある）。
 
-> ## Your data is your data.
->
-> As of March 1, 2023, data sent to the OpenAI API will not be used to train or improve OpenAI models (unless you explicitly opt in). One advantage to opting in is that the models may get better at your use case over time.
->
+> ## How we use your data
+> 
+> Your data is your data.
+> 
+> As of March 1, 2023, data sent to the OpenAI API will not be used to train or improve OpenAI models (unless you explicitly opt-in to share data with us, such as by [providing feedback in the Playground](https://help.openai.com/en/articles/9883556-providing-feedback-in-the-api-playground)). One advantage to opting in is that the models may get better at your use case over time.
+> 
 > To help identify abuse, API data may be retained for up to 30 days, after which it will be deleted (unless otherwise required by law). For trusted customers with sensitive applications, zero data retention may be available. With zero data retention, request and response bodies are not persisted to any logging mechanism and exist only in memory in order to serve the request.
 >
-> Note that this data policy does not apply to OpenAI's non-API consumer services like [ChatGPT(https://chat.openai.com/)] or [DALL·E Labs](https://labs.openai.com/).
+> Note that this data policy does not apply to OpenAI's non-API consumer services like [ChatGPT](https://chat.openai.com/) or [DALL·E Labs](https://labs.openai.com/).
 >
 > https://platform.openai.com/docs/models/how-we-use-your-data
 
@@ -357,6 +394,13 @@ TTS は Text-To-Speech の略。
 
 > [!NOTE]
 > シャットダウン日が過ぎているものは除外しています。
+
+## 2024-08-29: babbage-002 と davinci-002 のファインチューニングトレーニング
+
+| モデル | 推奨される移行先 | シャットダウン日 |
+| --- | --- | --- |
+| `babbage-002` の新たなファインチューニング | `gpt-4o-mini` | 2024/10/28 |
+| `davinci-002` の新たなファインチューニング | `gpt-4o-mini` | 2024/10/28 |
 
 ## 2024/06/06: GPT-4-32K とビジョンプレビューモデル
 

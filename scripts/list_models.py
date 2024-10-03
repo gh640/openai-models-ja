@@ -4,6 +4,7 @@
 """
 
 import csv
+import os
 import sys
 from dataclasses import asdict, dataclass, fields
 from datetime import datetime
@@ -29,17 +30,18 @@ class Model:
 
 
 def main():
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        sys.exit("Environment variable `OPENAI_API_KEY` needs to be set.")
+
     # 取得する
-    client = OpenAI()
+    client = OpenAI(api_key=api_key)
     pages = client.models.list().iter_pages()
 
-    models_orig = []
-    for p in pages:
-        models_orig.extend(filter(is_official_model, p.data))
-
+    models = (m for page in pages for m in page.data if is_official_model(m))
     models = [
         Model(id=m.id, owned_by=m.owned_by, created=dt_from_ts(m.created))
-        for m in models_orig
+        for m in models
     ]
 
     # 最新のものから順に並べる
@@ -48,7 +50,7 @@ def main():
     # 出力する
     writer = csv.DictWriter(sys.stdout, fieldnames=Model.fieldnames())
     writer.writeheader()
-    writer.writerows([asdict(m) for m in models])
+    writer.writerows(asdict(m) for m in models)
 
 
 def is_official_model(model: OpenAIModel) -> bool:
@@ -59,7 +61,7 @@ def is_user_model(model: OpenAIModel) -> bool:
     return model.owned_by.startswith("user-")
 
 
-def dt_from_ts(ts: str) -> datetime:
+def dt_from_ts(ts: int) -> datetime:
     return datetime.fromtimestamp(ts)
 
 
