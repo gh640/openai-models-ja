@@ -1,6 +1,6 @@
 # OpenAI 社が提供するモデルの一覧（日本語）
 
-**最終更新日: 2024/12/11**
+**最終更新日: 2024/12/18**
 
 OpenAI 社が提供するモデルの一覧です。
 基本的に最新のものが各表の一番上に並んでいます。
@@ -140,19 +140,19 @@ OpenAI が提供する、小さなモデルカテゴリにおける最も先進�
 - 画像入力は 150px x 150px で $0.001275 （ `gpt-4o` と同じ）
 - Batch API の価格は通常の価格の 50%
 
-## GPT-4o Realtime + Audio **Beta**
+## GPT-4o と GPT-4o-mini の Realtime **Beta**
 
-GPT-4o Realtime と Audio モデルのプレビューリリース。
-`gpt-4o-realtime-*` モデルは WebSocket インタフェースを使った音声とテキストの入力に反応できる。
+GPT-4o と GPT-4o-mini の Realtime モデルのプレビューリリース。
+これらのモデルは WebRTC や WebSocket のインタフェースを使った音声とテキストの入力に対応できる。
 詳しくは [Realtime API ガイド](https://platform.openai.com/docs/guides/realtime) 。
-`gpt-4o-audio-*` モデルは Chat Completions インタフェースで音声を含むレスポンスを生成できる。
 
-| モデル | 説明 | コンテキストウィンドウ | 最大出力トークン | トレーニングデータ |
-| --- | --- | --- | --- | --- |
-| `gpt-4o-realtime-preview` | Realtime API のプレビューリリース | 128,000 | 4,096 | 2023/10 まで
-| `gpt-4o-realtime-preview-2024-10-01` | Realtime API モデルの現在のスナップショット | 128,000 | 4,096 | 2023/10 まで
-| `gpt-4o-audio-preview` | 音声入力と chat completions のプレビューリリース | 128,000 | 16,384 | 2023/10 まで
-| `gpt-4o-audio-preview-2024-10-01` | Audio API モデルの現在のスナップショット | 128,000 | 16,384 | 2023/10 まで
+| モデル | 説明 | コンテキストウィンドウ | 最大出力トークン |
+| --- | --- | --- | --- |
+| `gpt-4o-realtime-preview` | `gpt-4o-realtime-preview-2024-10-01` を指す | 128,000 | 4,096 |
+| `gpt-4o-realtime-preview-2024-12-17` | - | 128,000 | 4,096 |
+| `gpt-4o-realtime-preview-2024-10-01` | - | 128,000 | 4,096 |
+| `gpt-4o-mini-realtime-preview` | `gpt-4o-mini-realtime-preview-2024-12-17` を指す | 128,000 | 4,096 |
+| `gpt-4o-mini-realtime-preview-2024-12-17` | - | 128,000 | 4,096 |
 
 ### 料金
 
@@ -161,20 +161,53 @@ GPT-4o Realtime と Audio モデルのプレビューリリース。
 | モデル | インプット（ 1M トークン） | アウトプット（ 1M トークン） |
 | --- | --- | --- |
 | `gpt-4o-realtime-preview` | $5 | $20 |
-| `gpt-4o-realtime-preview-2024-10-01` |  $5 | $20 |
-| `gpt-4o-audio-preview` |  $2.5 | $10 |
-| `gpt-4o-audio-preview-2024-10-01` |  $2.5 | $10 |
+| `gpt-4o-realtime-preview-2024-12-17` | $5 | $20 |
+| `gpt-4o-realtime-preview-2024-10-01` | $5 | $20 |
+| `gpt-4o-mini-realtime-preview` | $0.6 | $2.4 |
+| `gpt-4o-mini-realtime-preview-2024-12-17` | $0.6 | $2.4 |
+
+> [!NOTE]
+- 入力にはキャッシュ機能がありキャッシュされたトークンは半額（ 50% ）
 
 音声:
 
 | モデル | インプット（ 1M トークン） | アウトプット（ 1M トークン） |
 | --- | --- | --- |
 | `gpt-4o-realtime-preview` | $100 | $200 |
+| `gpt-4o-realtime-preview-2024-12-17` |  $40 | $80 |
 | `gpt-4o-realtime-preview-2024-10-01` |  $100 | $200 |
+| `gpt-4o-mini-realtime-preview` | $10 | $20 |
+| `gpt-4o-mini-realtime-preview-2024-12-17` | $10 | $20 |
+
+> [!NOTE]
+- 入力にはキャッシュ機能がありキャッシュされたトークンは 80 - 95% ほど安い
+
+## GPT-4o Audio **Beta**
+
+GPT-4o の Audio モデルのプレビューリリース。
+これらのモデルは音声の入出力が可能で Chat Completions REST API で使用可能。
+詳しくは [Audio 生成ガイド](https://platform.openai.com/docs/guides/audio) 。
+
+| モデル | 説明 | コンテキストウィンドウ | 最大出力トークン |
+| --- | --- | --- | --- |
+| `gpt-4o-audio-preview` | `gpt-4o-audio-preview-2024-10-01` を指す | 128,000 | 16,384 |
+| `gpt-4o-audio-preview-2024-12-17` | - | 128,000 | 16,384 |
+| `gpt-4o-audio-preview-2024-10-01` | - | 128,000 | 16,384 |
+
+## 料金
+
+| モデル | インプット（ 1M トークン） | アウトプット（ 1M トークン） |
+| --- | --- | --- |
 | `gpt-4o-audio-preview` |  $100 | $200 |
+| `gpt-4o-audio-preview-2024-12-17` |  $40 | $80 |
 | `gpt-4o-audio-preview-2024-10-01` |  $100 | $200 |
 
-- 音声 1 分あたりの大体の価格は、入力 $0.06 、出力 $0.24
+音声 1 分あたりのおおよその価格:
+
+| モデル | インプット | アウトプット |
+| --- | --- | --- |
+| `gpt-4o-audio-preview-2024-12-17` | $0.024 | 0.096 |
+| `gpt-4o-audio-preview-2024-10-01` | $0.06 | $0.24 |
 
 ## o1-preview と o1-mini
 
