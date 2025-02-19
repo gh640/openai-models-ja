@@ -1,487 +1,326 @@
-# OpenAI 社が提供するモデルの一覧（日本語）
+# OpenAI モデル一覧（日本語）
 
-**最終更新日: 2024/12/18**
+**最終更新日: 2025/02/19** （ OpenAI の Models ページの構造に合わせて書き換えました）
 
-OpenAI 社が提供するモデルの一覧です。
-基本的に最新のものが各表の一番上に並んでいます。
+OpenAI が提供する各種モデルの一覧とその特徴をまとめています。
 
-可能なときに更新していきます。
-最終更新日が古い場合は公式にあたってください。
+可能なときに更新していきます。最終更新日が古い場合は公式にあたってください。
 
----
+## 目次
+
+- [フラッグシップモデル](#フラッグシップモデル)
+  - [GPT モデル](#gpt-モデル)
+  - [Reasoning モデル](#reasoning-モデル)
+- [モデル概要](#モデル概要)
+- [コンテキストウィンドウ](#コンテキストウィンドウ)
+- [モデル ID のエイリアスとスナップショット](#モデル-id-のエイリアスとスナップショット)
+- [現在のモデルエイリアス](#現在のモデルエイリアス)
+- [GPT-4o](#gpt-4o)
+- [GPT-4o mini](#gpt-4o-mini)
+- [o1 と o1-mini](#o1-と-o1-mini)
+- [o3-mini](#o3-mini)
+- [GPT-4o と GPT-4o-mini Realtime](#gpt-4o-と-gpt-4o-mini-realtime)
+- [GPT-4o と GPT-4o-mini Audio](#gpt-4o-と-gpt-4o-mini-audio)
+- [GPT-4 Turbo と GPT-4](#gpt-4-turbo-と-gpt-4)
+- [GPT-3.5 Turbo](#gpt-35-turbo)
+- [DALL·E](#dalle)
+- [TTS](#tts)
+- [Whisper](#whisper)
+- [Embeddings](#embeddings)
+- [Moderation](#moderation)
+- [GPT base](#gpt-base)
+- [データの使用ポリシー](#データの使用ポリシー)
+- [非推奨モデル](#非推奨モデル)
 
 ## フラッグシップモデル
 
-### GPT-4o
+### GPT モデル
 
-知性の高いフラッグシップモデル（複雑・マルチステップなタスク向き）
+GPT モデルは高速で汎用性が高くコスト効率がよくカスタマイズ可能です。
 
-- 入力: テキスト・画像 / 出力: テキスト
-- コンテキスト長: 1.28 万
-- 入力: 5 ドル / 出力: 15 ドル
+- [GPT-4o を使用](#gpt-4o)
+- [GPT-4o mini を使用](#gpt-4o-mini)
 
-### GPT-4o mini
+### Reasoning モデル
 
-安くて性能の高い小さなモデル（軽量なタスク向き）
+Reasoning モデルは Chain-of-Thought 推論を使用して複雑なタスクで優れた性能を発揮します。
 
-- 入力: テキスト・画像 / 出力: テキスト
-- コンテキスト長: 1.28 万
-- 入力: 0.15 ドル / 出力 0.60 ドル
+- [o1 を使用](#o1-と-o1-mini)
+- [o3-mini を使用](#o3-mini)
 
-コストはいずれも 100 万トークンあたり。
+## モデル概要
 
-### o1-preview と o1-mini **Beta**
+OpenAI API は異なる機能と価格帯を持つ多様なモデルで構成されています。
+また、ファインチューニングを使用して特定のユースケースに合わせてモデルをカスタマイズすることもできます。
 
-新しい推論モデルの新しいシリーズ（難しい問題解決向き）
+| カテゴリ | 説明 |
+| --- | --- |
+| GPT モデル | 高速で汎用性が高い、高知能なフラッグシップモデル |
+| Reasoning モデル | 複雑な多段階タスクに優れた o シリーズの推論モデル |
+| GPT-4o Realtime | リアルタイムのテキストと音声の入出力が可能な GPT-4o モデル |
+| GPT-4o Audio | REST API を介して音声の入出力が可能な GPT-4o モデル |
+| DALL·E | 自然言語プロンプトから画像を生成・編集できるモデル |
+| TTS | テキストを自然な音声に変換できるモデル群 |
+| Whisper | 音声をテキストに変換できるモデル |
+| Embeddings | テキストを数値形式に変換できるモデル群 |
+| Moderation | テキストの機微性や安全性を検出できるファインチューニング済みモデル |
+| Deprecated | 非推奨となったモデルの一覧と推奨される代替モデル |
 
-- 入出力: テキストのみ
-- コンテキスト長: 1.28 万
-- o1-preview: 入力: 15 ドル / 出力: 60 ドル
-- o1-mini: 入力: 3 ドル / 出力: 12 ドル
+以下を含むオープンソースも公開されています。
 
-## 継続的なモデルアップグレード
+- [Point-E](https://github.com/openai/point-e)
+- [Whisper](https://github.com/openai/whisper)
+- [Jukebox](https://github.com/openai/jukebox)
+- [CLIP](https://github.com/openai/CLIP)
 
-以下のモデルはそのときどきの最新版のモデルを指す。
+## コンテキストウィンドウ
 
-- `chatgpt-4o-latest`
-- `gpt-4o`
-- `gpt-4o-mini`
-- `gpt-4-turbo`
-- `gpt-4`
-- `gpt-3.5-turbo`
+このページに記載されているモデルには **コンテキストウィンドウ** が設定されています。これは入力トークン、出力トークン、推論トークンを含む単一のリクエストで使用できる最大トークン数を指します。例えば、 o1 モデルで chat completinons の API リクエストを行う場合、以下のトークン数がコンテキストウィンドウの合計に適用されます: 
 
-実際に使われたモデルの情報はレスポンスオブジェクトで確認できる。
+* 入力トークン（ chat completions の `messages` 配列に含まれる入力）
+* 出力トークン（プロンプトに応答して生成されたトークン）
+* 推論トークン（モデルが応答を計画するために使用するトークン）
 
-> ## Continuous model upgrades
-> 
-> `gpt-4o`, `gpt-4o-mini`, `gpt-4-turbo`, `gpt-4`, and `gpt-3.5-turbo` point to their respective latest model version. You can verify this by looking at the [response object](https://platform.openai.com/docs/api-reference/chat/object) after sending a request. The response will include the specific model version used (e.g. `gpt-3.5-turbo-1106`). The `chatgpt-4o-latest` model version continuously points to the version of [GPT-4o](https://chatgpt.com/) used in ChatGPT, and is updated frequently. With the exception of `chatgpt-4o-latest`, we offer pinned model versions that developers can continue using for at least three months after an updated model has been introduced.
-> 
-> Learn more about model deprecation on our [deprecation page](https://platform.openai.com/docs/deprecations).
+コンテキストウィンドウの制限を超えて生成されたトークンは API レスポンスで切り捨てられる可能性があります。
+
+メッセージが使用するトークン数はトークナイザーツールで見積もることができます。
+
+## モデル ID のエイリアスとスナップショット
+
+以下の表では chat completions などの REST API で出力を生成するために使用できる **モデル ID** が記載されています。これらのモデル ID の一部は、特定の **日付付きスナップショット** を指す **エイリアス** です。
+
+例えば、 `gpt-4o` モデル ID は GPT-4o の特定の日付付きスナップショットを指すエイリアスです。これらのエイリアスが指す日付付きスナップショットは、新しいスナップショットが利用可能になってから数ヶ月後に定期的に更新されます。エイリアスであるモデル ID は、以下の表で現在指しているモデル ID が記載されています。
+
+本番環境のアプリケーションでは、定期的に変更される可能性のあるエイリアスではなく、 **日付付きモデルスナップショット ID を使用することがベストプラクティス** です。
+
+## 現在のモデルエイリアス
+
+以下に現在のモデルエイリアスと、（利用可能な場合は）新しいバージョンへの更新時期に関するガイダンスを示します。
+
+| エイリアス | ポイント先 |
+| --- | --- |
+| `gpt-4o` | `gpt-4o-2024-08-06` |
+| `chatgpt-4o-latest` | `ChatGPT で使われる最新版` |
+| `gpt-4o-mini` | `gpt-4o-mini-2024-07-18` |
+| `o1` | `o1-2024-12-17` |
+| `o1-mini` | `o1-mini-2024-09-12` |
+| `o3-mini` | `o3-mini-2025-01-31` |
+| `o1-preview` | `o1-preview-2024-09-12` |
+| `gpt-4o-realtime-preview` | `gpt-4o-realtime-preview-2024-12-17` |
+| `gpt-4o-mini-realtime-preview` | `gpt-4o-mini-realtime-preview-2024-12-17` |
+| `gpt-4o-audio-preview` | `gpt-4o-audio-preview-2024-12-17` |
 
 ## GPT-4o
 
-OpenAI が提供する最も先進的なマルチモーダル（テキスト・画像の入力とテキストの出力ができる）モデル。
-4o の o は omni を意味する。
-GPT-4 Turbo と同じ高い知能を持ちながらはるかに効率的で、テキスト生成は 2 倍速くコストは 50% 低減されている。
-さらに、 OpenAI の他のモデルよりも優れた視覚認識能力と非英語言語でのパフォーマンスを持つ。
+GPT-4o（"o" は "omni" の略）は汎用性の高い、高知能なフラッグシップモデルです。テキストと画像入力の両方を受け付け、テキスト出力（構造化出力を含む）を生成します。 GPT-4o の使用方法についてはテキスト生成ガイドをご覧ください。
 
-モデル | 説明 | コンテキストウィンドウ | 最大出力トークン | トレーニングデータ
---- | --- | --- | --- | ---
-`chatgpt-4o-latest` | ChatGPT で使用される GPT-4o のバージョンに継続的にアップデートされるダイナミックなモデル | 128,000 | 16,384 | 2024/10 まで
-`gpt-4o` | GPT-4o モデル。最も先進的なマルチモーダルフラッグシップモデル。 GPT-4 Trubo よりも安価で高速。現在 `gpt-4o-2024-08-06` を指す。 | 128,000 | 16,384 | 2023/10 まで
-`gpt-4o-2024-11-20` | GPT-4o の 2024/11/20 の最新スナップショット。 | 128,000 | 16,384 | 2023/10 まで
-`gpt-4o-2024-08-06` | Structured Outputs をサポートする最新のスナップショット | 128,000 | 16,384 | 2024/10 まで
-`gpt-4o-2024-05-13` | 現在 `gpt-4o` が指すモデル | 128,000 | 4,096 | 2023/10 まで
+以下の `chatgpt-4o-latest` モデル ID は ChatGPT で使われている GPT-4o のバージョンを継続的に指します。 ChatGPT の GPT-4o モデルに大きな変更がある場合、頻繁に更新されます。
 
-> [!NOTE]
-> `chatgpt-4o-latest` は開発者・研究者向け。本番環境での使用には日付ありの GPT モデルが推奨される。
+GPT-4o モデルのナレッジカットオフは **2023年10月** です。
 
-### 料金
+| モデル | コンテキストウィンドウ | 最大出力トークン |
+| --- | --- | --- |
+| `gpt-4o` ↳ `gpt-4o-2024-08-06` | 128,000 トークン | 16,384 トークン |
+| `gpt-4o-2024-11-20` | 128,000 トークン | 16,384 トークン |
+| `gpt-4o-2024-08-06` | 128,000 トークン | 16,384 トークン |
+| `gpt-4o-2024-05-13` | 128,000 トークン | 4,096 トークン |
+| `gpt-4o-2024-05-13` | 128,000 トークン | 4,096 トークン |
+| `chatgpt-4o-latest` ↳ ChatGPT で使われる GPT-4o | 128,000 トークン | 16,384 トークン |
 
-モデル | インプット（ 1M トークン） | アウトプット（ 1M トークン）
+料金:
+
+モデル | 入力 1M トークンあたり | 出力 1M トークンあたり
 --- | --- | ---
-`chatgpt-4o-latest` | $5 | $15
-`gpt-4o` | $2.5 | $10
-`gpt-4o-2024-11-20` | $2.5 | $10
-`gpt-4o-2024-08-06` | $2.5 | $10
+`gpt-4o-2024-11-20` | $2.5 （キャッシュ $1.25 ） | $10
+`gpt-4o-2024-08-06` | $2.5 （キャッシュ $1.25 ） | $10
 `gpt-4o-2024-05-13` | $5 | $15
-
-> [!NOTE]
-> `gpt-4o` と `gpt-4o-2024-11-20` と `gpt-4o-2024-08-06` にはインプットトークンのキャッシュ機能がある。キャッシュされたトークンは半額（ 50% ）。
-
-画像入力は 150px x 150px に対して:
-
-モデル | 価格
---- | ---
-`chatgpt-4o-latest` | $0.001275
-`gpt-4o` | $0.000638
-`gpt-4o-2024-08-06` | $0.000638
-`gpt-4o-2024-05-13` | $0.001275
-
-- Batch API の価格は通常の価格の 50%
-
-インプット・アウトプットともに価格は GPT 4 Turbo の 50% で、トークン化効率も大幅に向上している。
-
-> [!NOTE]
-> 後発の `gpt-4o-2024-08-06` の方が `gpt-4o-2024-05-13` よりも単価が低いのは間違いではありません。
-
-> By switching to the new `gpt-4o-2024-08-06`, developers save 50% on inputs ($2.50/1M input tokens) and 33% on outputs ($10.00/1M output tokens) compared to `gpt-4o-2024-05-13`.
->
-> [Introducing Structured Outputs in the API | OpenAI](https://openai.com/index/introducing-structured-outputs-in-the-api/)
-
-> [!NOTE]
-> 後発の `gpt-4o` の方が `gpt-4-turbo` よりも単価が低いのは間違いではありません。
-
-> It (=GPT-4o) matches GPT-4 Turbo performance on text in English and code, with significant improvement on text in non-English languages, while also being much faster and 50% cheaper in the API.
-> 
-> [Hello GPT-4o | OpenAI](https://openai.com/index/hello-gpt-4o/)
+`chatgpt-4o-latest` | $5 | $15
 
 ## GPT-4o mini
 
-OpenAI が提供する、小さなモデルカテゴリにおける最も先進的なモデル。
-そしてこれまでで最も安いモデルでもある。
-`gpt-3.5-turbo` と同等に高速でありながらよりも高い性能を持つ。
+GPT-4o mini（"o" は "omni" の略）は、焦点を絞ったタスクのための高速で手頃な価格の小型モデルです。テキストと画像入力の両方を受け付け、テキスト出力（構造化出力を含む）を生成します。ファインチューニングに適しており GPT-4o のような大きなモデルからの出力を蒸留して GPT-4o-mini で同様の結果を低コストと低レイテンシーで生成することができます。
 
-| モデル | 説明 | コンテキストウィンドウ | 最大出力トークン | トレーニングデータ |
-| --- | --- | --- | --- | --- |
-| `gpt-4o-mini` | 安くて性能の高い小さなモデル。現在 `gpt-4o-mini-2024-07-18` を指す。 | 128,000 | 16,384 | 2023/10 まで |
-| `gpt-4o-mini-2024-07-18` | 現在 `gpt-4o-mini` が指すモデル | 128,000 | 16,384 | 2023/10 まで |
+GPT-4o-mini モデルのナレッジカットオフは **2023年10月** です。
 
-### 料金
-
-| モデル | インプット（ 1M トークン） | アウトプット（ 1M トークン） |
+| モデル | コンテキストウィンドウ | 最大出力トークン |
 | --- | --- | --- |
-| `gpt-4o-mini` | $0.15 | $0.60 |
-| `gpt-4o-mini-2024-07-18` | $0.15 | $0.60 |
+| `gpt-4o-mini` ↳ `gpt-4o-mini-2024-07-18` | 128,000 トークン | 16,384 トークン |
+| `gpt-4o-mini-2024-07-18` | 128,000 トークン | 16,384 トークン |
 
-> [!NOTE]
-> `gpt-4o-mini` と `gpt-4o-mini-2024-07-18` にはインプットトークンのキャッシュ機能がある。キャッシュされたトークンは半額（ 50% ）。
+料金:
 
-- 画像入力は 150px x 150px で $0.001275 （ `gpt-4o` と同じ）
-- Batch API の価格は通常の価格の 50%
+モデル | 入力 1M トークンあたり | 出力 1M トークンあたり
+--- | --- | ---
+`gpt-4o-mini-2024-07-18` | $0.15 （キャッシュ $0.075 ） | $0.6
 
-## GPT-4o と GPT-4o-mini の Realtime **Beta**
+## o1 と o1-mini
 
-GPT-4o と GPT-4o-mini の Realtime モデルのプレビューリリース。
-これらのモデルは WebRTC や WebSocket のインタフェースを使った音声とテキストの入力に対応できる。
-詳しくは [Realtime API ガイド](https://platform.openai.com/docs/guides/realtime) 。
+**o1 シリーズ** のモデルは複雑な推論を実行するために強化学習でトレーニングされています。 o1 モデルは回答する前に考え、ユーザーに応答する前に長い内部的な思考の連鎖を生成します。 o1 モデルの機能については推論ガイドをご覧ください。 **o1** 推論モデルはさまざまな領域の難しい問題を解決するように設計されています。 **o1-mini** はより高速で手頃な価格の推論モデルですが、同じレイテンシーと価格で高い知能を備えた新しい [**o3-mini**](#o3-mini) モデルの使用を推奨します。
 
-| モデル | 説明 | コンテキストウィンドウ | 最大出力トークン |
-| --- | --- | --- | --- |
-| `gpt-4o-realtime-preview` | `gpt-4o-realtime-preview-2024-10-01` を指す | 128,000 | 4,096 |
-| `gpt-4o-realtime-preview-2024-12-17` | - | 128,000 | 4,096 |
-| `gpt-4o-realtime-preview-2024-10-01` | - | 128,000 | 4,096 |
-| `gpt-4o-mini-realtime-preview` | `gpt-4o-mini-realtime-preview-2024-12-17` を指す | 128,000 | 4,096 |
-| `gpt-4o-mini-realtime-preview-2024-12-17` | - | 128,000 | 4,096 |
+最新の o1 モデルはテキストと画像入力の両方をサポートし、テキスト出力（構造化出力を含む）を生成します。 o1-mini は現在テキストの入出力のみをサポートしています。
 
-### 料金
+o1 と o1-mini モデルのナレッジカットオフは **2023年10月** です。
 
-テキスト:
-
-| モデル | インプット（ 1M トークン） | アウトプット（ 1M トークン） |
+| モデル | コンテキストウィンドウ | 最大出力トークン |
 | --- | --- | --- |
-| `gpt-4o-realtime-preview` | $5 | $20 |
-| `gpt-4o-realtime-preview-2024-12-17` | $5 | $20 |
-| `gpt-4o-realtime-preview-2024-10-01` | $5 | $20 |
-| `gpt-4o-mini-realtime-preview` | $0.6 | $2.4 |
-| `gpt-4o-mini-realtime-preview-2024-12-17` | $0.6 | $2.4 |
+| `o1` ↳ `o1-2024-12-17` | 200,000 トークン | 100,000 トークン |
+| `o1-2024-12-17` | 200,000 トークン | 100,000 トークン |
+| `o1-mini` ↳ `o1-mini-2024-09-12` | 128,000 トークン | 65,536 トークン |
+| `o1-mini-2024-09-12` | 128,000 トークン | 65,536 トークン |
+| `o1-preview` ↳ `o1-preview-2024-09-12` | 128,000 トークン | 32,768 トークン |
+| `o1-preview-2024-09-12` | 128,000 トークン | 32,768 トークン |
 
-> [!NOTE]
-- 入力にはキャッシュ機能がありキャッシュされたトークンは半額（ 50% ）
+料金:
 
-音声:
+モデル | 入力 1M トークンあたり | 出力 1M トークンあたり
+--- | --- | ---
+`o1-2024-12-17` | $15 （キャッシュ $7.5 ） | $60
+`o1-mini-2024-09-12` | $1.1 （キャッシュ $0.55 ） | $4.4
+`o1-preview-2024-09-12` | $15 （キャッシュ $7.5 ） | $60
 
-| モデル | インプット（ 1M トークン） | アウトプット（ 1M トークン） |
+## o3-mini
+
+**o3-mini** は最新の小型推論モデルで、 o1-mini と同じコストとレイテンシーで高い知能を提供します。 o3-mini は構造化出力、関数呼び出し、 Batch API などの主要な開発者機能もサポートしています。 o シリーズの他のモデルと同様に、科学、数学、コーディングタスクで優れた性能を発揮するように設計されています。
+
+o3-mini モデルのナレッジカットオフは **2023年10月** です。
+
+| モデル | コンテキストウィンドウ | 最大出力トークン |
 | --- | --- | --- |
-| `gpt-4o-realtime-preview` | $100 | $200 |
-| `gpt-4o-realtime-preview-2024-12-17` |  $40 | $80 |
-| `gpt-4o-realtime-preview-2024-10-01` |  $100 | $200 |
-| `gpt-4o-mini-realtime-preview` | $10 | $20 |
-| `gpt-4o-mini-realtime-preview-2024-12-17` | $10 | $20 |
+| `o3-mini` ↳ `o3-mini-2025-01-31` | 200,000 トークン | 100,000 トークン |
+| `o3-mini-2025-01-31` | 200,000 トークン | 100,000 トークン |
 
-> [!NOTE]
-- 入力にはキャッシュ機能がありキャッシュされたトークンは 80 - 95% ほど安い
+料金:
 
-## GPT-4o Audio **Beta**
+モデル | 入力 1M トークンあたり | 出力 1M トークンあたり
+--- | --- | ---
+`o3-mini-2025-01-31` | $1.1 （キャッシュ $0.55 ） | $4.4
 
-GPT-4o の Audio モデルのプレビューリリース。
-これらのモデルは音声の入出力が可能で Chat Completions REST API で使用可能。
-詳しくは [Audio 生成ガイド](https://platform.openai.com/docs/guides/audio) 。
+## GPT-4o と GPT-4o-mini Realtime **Beta**
 
-| モデル | 説明 | コンテキストウィンドウ | 最大出力トークン |
-| --- | --- | --- | --- |
-| `gpt-4o-audio-preview` | `gpt-4o-audio-preview-2024-10-01` を指す | 128,000 | 16,384 |
-| `gpt-4o-audio-preview-2024-12-17` | - | 128,000 | 16,384 |
-| `gpt-4o-audio-preview-2024-10-01` | - | 128,000 | 16,384 |
+これは GPT-4o と GPT-4o-mini Realtime モデルのプレビューリリースです。これらのモデルは WebRTC または WebSocket インターフェースを介してリアルタイムで音声とテキストの入力に応答できます。詳しくは Realtime API ガイドをご覧ください。
 
-## 料金
+GPT-4o Realtime モデルのナレッジカットオフは **2023年10月** です。
 
-| モデル | インプット（ 1M トークン） | アウトプット（ 1M トークン） |
+| モデル | コンテキストウィンドウ | 最大出力トークン |
 | --- | --- | --- |
-| `gpt-4o-audio-preview` |  $100 | $200 |
-| `gpt-4o-audio-preview-2024-12-17` |  $40 | $80 |
-| `gpt-4o-audio-preview-2024-10-01` |  $100 | $200 |
+| `gpt-4o-realtime-preview` ↳ `gpt-4o-realtime-preview-2024-12-17` | 128,000 トークン | 4,096 トークン |
+| `gpt-4o-realtime-preview-2024-12-17` | 128,000 トークン | 4,096 トークン |
+| `gpt-4o-realtime-preview-2024-10-01` | 128,000 トークン | 4,096 トークン |
+| `gpt-4o-mini-realtime-preview` ↳ `gpt-4o-mini-realtime-preview-2024-12-17` | 128,000 トークン | 4,096 トークン |
+| `gpt-4o-mini-realtime-preview-2024-12-17` | 128,000 トークン | 4,096 トークン |
 
-音声 1 分あたりのおおよその価格:
+料金（テキスト）:
 
-| モデル | インプット | アウトプット |
+モデル | 入力 1M トークンあたり | 出力 1M トークンあたり
+--- | --- | ---
+`gpt-4o-realtime-preview-2024-12-17` | $5 （キャッシュ $2.5 ） | $20
+`gpt-4o-realtime-preview-2024-10-01` | $5 （キャッシュ $2.5 ） | $20 
+`gpt-4o-mini-realtime-preview-2024-12-17` | $0.6 （キャッシュ  $0.3 ） | $2.4
+
+## GPT-4o と GPT-4o-mini Audio **Beta**
+
+これは GPT-4o Audio モデルのプレビューリリースです。これらのモデルは音声の入出力を受け付け、 Chat Completions REST API で使用できます。詳細はこちらをご覧ください。
+
+GPT-4o Audio モデルのナレッジカットオフは **2023年10月** です。
+
+| モデル | コンテキストウィンドウ | 最大出力トークン |
 | --- | --- | --- |
-| `gpt-4o-audio-preview-2024-12-17` | $0.024 | 0.096 |
-| `gpt-4o-audio-preview-2024-10-01` | $0.06 | $0.24 |
+| `gpt-4o-audio-preview` ↳ `gpt-4o-audio-preview-2024-12-17` | 128,000 トークン | 16,384 トークン |
+| `gpt-4o-audio-preview-2024-12-17` | 128,000 トークン | 16,384 トークン |
+| `gpt-4o-audio-preview-2024-10-01` | 128,000 トークン | 16,384 トークン |
+| `gpt-4o-mini-audio-preview` ↳ `gpt-4o-mini-audio-preview-2024-12-17` | 128,000 トークン | 16,384 トークン |
+| `gpt-4o-mini-audio-preview-2024-12-17` | 128,000 トークン | 16,384 トークン |
 
-## o1-preview と o1-mini
+料金（テキスト）:
 
-複雑な推論を行うように強化学習でトレーニングされた大規模モデル。
-回答を返す前に考えて、長い内部的な Chain of thought を生成してからユーザーに返答を返す。
-科学的推論に長けている。
-
-- Codeforces: 競技プログラミングの質問で 89 パーセンタイル
-- AIME: 数学でアメリカの学生のトップ 500 に匹敵
-- GPQA: 物理・生物学・化学の問題で人間の PhD レベルの正確さ
-
-| モデル | 説明 | コンテキストウィンドウ | 最大出力トークン | トレーニングデータ |
-| --- | --- | --- | --- | --- |
-| `o1-preview` | さまざまな領域で難しい問題を解けるよう設計された推論モデル。 `o1` モデルの早期プレビュー。 | 128,000 | 32,768 | 2023/10 まで |
-| `o1-mini` | コーディング・数学・科学で特に優れた高速で安価な推論モデル | 128,000 | 65,536 | 2023/10 まで |
-
-### 料金
-
-| モデル | インプット（ 1M トークン） | アウトプット（ 1M トークン） |
-| --- | --- | --- |
-| `o1-preview` | $15 | $60 |
-| `o1-preview-2024-09-12` | $15 | $60 |
-| `o1-mini` | $3 | $12 |
-| `o1-mini-2024-09-12` | $3 | $12 |
+モデル | 入力 1M トークンあたり | 出力 1M トークンあたり
+--- | --- | ---
+`gpt-4o-audio-preview-2024-12-17` | $2.5 | $10
+`gpt-4o-audio-preview-2024-10-01` | $2.5 | $10
+`gpt-4o-mini-audio-preview-2024-12-17` | $0.15 | $0.6
 
 ## GPT-4 Turbo と GPT-4
 
-大規模なマルチモーダル（テキスト・画像の入力とテキストの出力ができる）モデル。
+GPT-4 は Chat Completions で使用できる高知能 GPT モデルの旧バージョンです。詳しくはテキスト生成ガイドをご覧ください。最新の GPT-4 Turbo バージョンのナレッジカットオフは **2023年12月** です。
 
-| モデル | 説明 | コンテキストウィンドウ | トレーニングデータ |
-| --- | --- | --- | --- |
-| `gpt-4-turbo` | GPT-4 Turbo with Vision モデル。ビジョン機能付きの最新の GPT-4 Turbo 。ビジョンリクエストで JSON モードとファンクションコーリングを利用可。現在 `gpt-4-turbo-2024-04-09` を指す。 | 128,000 トークン | 2023/12 まで |
-| `gpt-4-turbo-2024-04-09` | GPT-4 Turbo with Vision モデル。ビジョンリクエストで JSON モードとファンクションコーリングを利用可。 | 128,000 トークン | 2023/12 まで |
-| `gpt-4-turbo-preview` | 現在 `gpt-4-0125-preview` を指す。 | 128,000 トークン | 2023/12 まで |
-| `gpt-4-0125-preview` | GPT-4 Turbo preview モデル。 [詳細](https://openai.com/index/new-embedding-models-and-api-updates/) | 128,000 トークン | 2023/12 まで |
-| `gpt-4-1106-preview` | GPT-4 Turbo モデル。プロダクショントラフィック向けではない。 [詳細](https://openai.com/index/new-models-and-developer-products-announced-at-devday/) | 128,000 トークン | 2023/04 まで |
-| `gpt-4` | 現在 `gpt-4-0613` を指す。 | 8,192 トークン | 2021/09 まで |
-| `gpt-4-0613` | `gpt-4` の 2023/06/13 時点のスナップショット。ファンクションコーリングサポートの改善あり。 | 8,192 トークン | 2021/09 まで |
-| `gpt-4-0314` | **Legacy**<br>`gpt-4` の 2023/03/14 時点のスナップショット。 | 8,192 トークン | 2021/09 まで |
-
-> [!TIP]
-> モデル名に 4 桁の数字が入っているものはリリース日の月日を表すようです（少し場当たり的に付けられている感じがするので将来的にルールがかわるかもしれません）。
-> 年の情報は含まれていないため少しややこしいですが、新しいものから並べると `gpt-4-0125-preview` > `gpt-4-1106-preview` > `gpt-4-0613` となります。
-
-### 料金
-
-| モデル | インプット（ 1M トークン） | アウトプット（ 1M トークン） |
-| --- | --- | --- |
-| `gpt-4-turbo-2024-04-09` | $10 | $30 |
-| `gpt-4` | $30 | $60 |
-| `gpt-4-32k` | $60 | $120 |
-
-画像入力は 150px x 150px で $0.00255 。
-
-多くの基本的なタスクでは GPT-4 と GPT-3.5 の差は大きくない。しかし、より複雑な推論状況では GPT-4 はこれまでのどのモデルよりもはるかに能力が高い。
-
-> [!NOTE]
-> 後発の `gpt-4-turbo` の方が `gpt-4` よりも単価が低いのは間違いではありません。
-
-> GPT-4 Turbo is more capable and has knowledge of world events up to April 2023. It has a 128k context window so it can fit the equivalent of more than 300 pages of text in a single prompt. We also optimized its performance so we are able to offer GPT-4 Turbo at a 3x cheaper price for input tokens and a 2x cheaper price for output tokens compared to GPT-4.
->
-> [New models and developer products announced at DevDay](https://openai.com/index/new-models-and-developer-products-announced-at-devday/)
+（詳細は割愛します）
 
 ## GPT-3.5 Turbo
 
-GPT-3.5 を改善した、自然言語やコードを理解・生成できるモデル群。
+GPT-3.5 Turbo モデルは自然言語やコードを理解・生成でき、Chat Completions API用に最適化されていますが、チャット以外のタスクでも良好に動作します。
 
-| モデル | 説明 | コンテキストウィンドウ | トレーニングデータ |
-| --- | --- | --- | --- |
-| `gpt-3.5-turbo-0125` | **New**<br>最新の **GPT 3.5 Turbo** モデル。 [詳細](https://openai.com/index/new-embedding-models-and-api-updates/#:~:text=Other%20new%20models%20and%20lower%20pricing) | 16,385 トークン | 2021/09 まで |
-| `gpt-3.5-turbo` | 現在 `3.5-turbo-0125` を指す。 | 16,385 トークン | 2021/09 まで |
-| `gpt-3.5-turbo-1106` | GPT-3.5 Turbo モデル。インストラクションへの対応・ JSON モード・再現可能な出力・パラレルファンクションコーリングなどの改善あり。 [詳細](https://openai.com/index/new-models-and-developer-products-announced-at-devday/) | 16,385 トークン | 2021/09 まで |
-| `gpt-3.5-turbo-instruct` | GPT-3 時代と近い能力。レガシー Completions エンドポイントとの互換性あり、 Chat Completions との互換性なし。 | 4,096 トークン | 2021/09 まで |
-| `gpt-3.5-turbo-16k` | **Legacy**<br>現在 `gpt-3.5-turbo-16k-0613` を指す。 | 16,385 トークン | 2021/09 まで |
-| `gpt-3.5-turbo-0613` | **Legacy**<br>`gpt-3.5-turbo` の 2023/06/13 時点のスナップショット。 2024/06/13 に deprecated 予定。 | 4,096 トークン | 2021/09 まで |
-| `gpt-3.5-turbo-16k-0613` | **Legacy**<br>`gpt-3.5-16k-turbo` の 2023/06/13 時点のスナップショット。 2024/06/13 に deprecated 予定。 | 16,385 トークン | 2021/09 まで |
+2024年7月現在、`gpt-4o-mini` は `gpt-3.5-turbo` よりも安価で高性能、マルチモーダルで同等の速度を持つため、 `gpt-3.5-turbo` の代わりに使用することを推奨します。 `gpt-3.5-turbo` は API での使用は引き続き可能です。
 
-> [!TIP]
-> こちらもモデル名に 4 桁の数字が入っているものはリリース日の月日を表すようです。
-> 年の情報は含まれていないため少しややこしいですが、新しいものから並べると `gpt-3.5-turbo-0125` > `gpt-3-turbo-1106` > `gpt-3-turbo-0613` となります。
-
-### 料金
-
-| モデル | インプット（ 1M トークン） | アウトプット（ 1M トークン） |
-| --- | --- | --- |
-| `gpt-3.5-turbo-0125` | $0.5 | $1.5 |
-| `gpt-3.5-turbo-instruct` | $1.5 | $2.0 |
-
-## アシスタント API
-
-> [!TIP]
-> アシスタント API では各チャットモデルが利用できます。
-
-### 料金
-
-| ツール | インプット |
-| --- | --- |
-| Code interpreter | $0.03 / セッション |
-| Retrieval | $0.20 / GB / アシスタント / 日（ 2024/03/01 まで無料） |
+（詳細は割愛します）
 
 ## DALL·E
 
-自然言語のプロンプトを与えて画像を生成・編集できるモデル。
+DALL·E は自然言語の説明から現実的な画像やアートを作成できる AI システムです。DALL·E 3 は現在、プロンプトを与えて特定のサイズの新しい画像を作成する機能をサポートしています。DALL·E 2 は既存の画像の編集や、ユーザーが提供した画像のバリエーション作成もサポートしています。
+
+DALL·E 3 は DALL·E 2 とともに Images API で利用可能です。 DALL·E 3 は ChatGPT Plus で試すことができます。
 
 | モデル | 説明 |
 | --- | --- |
-| `dall-e-3` | 最新の **DALL·E 3** モデル。 2023/11 リリース。 [詳細](https://openai.com/index/new-models-and-developer-products-announced-at-devday/) |
-| `dall-e-2` | ひとつ前の DALL·E モデル。 2022/11 リリース。オリジナルモデルよりも 4 倍以上の解像度のリアルで精確な第 2 世代 DALL·E モデル。 |
-
-### 料金
-
-| モデル | 品質 | 解像度 | 料金（ 1 画像） |
-| --- | --- | --- | --- |
-| `dall-e-3` | Standard | 1024×1024 | $0.040 |
-|  | Standard | 1024×1792, 1792×1024 | $0.080 |
-|  | HD | 1024×1024 | $0.080 |
-|  | HD | 1024×1792, 1792×1024 | $0.120 |
-| `dall-e-2` |  | 1024×1024 | $0.020 |
-|  |  | 512×512 | $0.018 |
-|  |  | 256×256 | $0.016 |
+| `dall-e-3` | 2023年11月にリリースされた最新の DALL·E モデル。 [詳細はこちら](https://openai.com/blog/dall-e-3-is-now-available-in-chatgpt-and-the-api) |
+| `dall-e-2` | 2022年11月にリリースされた前世代の DALL·E モデル。オリジナルモデルよりも 4 倍高い解像度で、より現実的で正確な画像を生成できる DALL·E の第 2 世代モデル |
 
 ## TTS
 
-テキストを自然な発話データに変換できるモデル群。
-TTS は Text-To-Speech の略。
+TTS は、テキストを自然な音声に変換する AI モデルです。リアルタイムのテキスト読み上げユースケース向けに最適化された `tts-1` と、品質を重視した `tts-1-hd` の 2 つのモデルバリエーションを提供しています。これらのモデルは Audio API の Speech エンドポイントで使用できます。
 
 | モデル | 説明 |
 | --- | --- |
-| `tts-1` | 最新の Text-to-Speech モデル。リアルタイム生成向けでスピード優先。 |
-| `tts-1-hd` | 最新の Text-to-Speech 1 モデル。品質優先。 |
-
-### 料金
-
-| モデル | 料金 |
-| --- | --- |
-| `tts-1` |	$0.015 / 1K 文字 |
-| `tts-1-hd` | $0.030 / 1K 文字 |
+| `tts-1` | 速度を重視した最新のテキスト読み上げモデル |
+| `tts-1-hd` | 品質を重視した最新のテキスト読み上げモデル |
 
 ## Whisper
 
-音声をテキストに変換できるモデル。
-マルチタスクで多言語音声認識・音声翻訳・言語識別も可能。
-現在モデル名 `whisper-1` で Whisper v2-large モデルが利用可能。
+Whisper は汎用的な音声認識モデルです。多様な音声データセットでトレーニングされており、多言語音声認識、音声翻訳、言語識別を実行できるマルチタスクモデルでもあります。Whisper v2-large モデルは現在、`whisper-1` モデル名で API を通じて利用可能です。
 
-| モデル | 説明 |
-| --- | --- |
-| `whisper-1` | Whisper v2-large モデル。 |
-
-現在オープンソースバージョンと OpenAI の API で利用できるバージョンに違いは無いが、 API の方は推論過程の最適化により高速化されている。
-
-### 料金
-
-| モデル | 料金 |
-| --- | --- |
-| `whisper-1` |	$0.006 / 分（端数は近い秒に丸められる） |
+現在 [オープンソース版の Whisper](https://github.com/openai/whisper) と API で利用可能なバージョンに違いはありません。ただし、API を通じて、最適化された推論プロセスを提供しており、これにより API を通じて Whisper を実行する方が他の方法よりもはるかに高速です。 Whisper の技術的な詳細については、[論文](https://arxiv.org/abs/2212.04356)をご覧ください。
 
 ## Embeddings
 
-テキストを数値形式に変換できるモデル群。
-最新のモデルについては [告知のブログ投稿](https://openai.com/index/new-embedding-models-and-api-updates/) に詳細あり。
+Embeddings は、2 つのテキスト間の関連性を測定するために使用できるテキストの数値表現です。 Embeddings は検索、クラスタリング、推奨、異常検出、分類タスクに有用です。最新の embedding モデルについては [発表ブログ記事](https://openai.com/blog/new-embedding-models-and-api-updates) をご覧ください。
 
-| モデル | 説明 | 出力の次元 |
-| --- | --- | --- |
-| `text-embedding-3-large` | **New**<br>**Embedding V3 large** <br>英語とその他の言語の両方で最も能力の高い embedding モデル。 [詳細](https://openai.com/index/new-embedding-models-and-api-updates/) | 3,072 |
-| `text-embedding-3-small` | **New**<br>**Embedding V3 small** <br>第 2 世代の ada embedding モデルからパフォーマンスを改善。 [詳細](https://openai.com/index/new-embedding-models-and-api-updates/) | 1,536 |
-| `text-embedding-ada-002` | 第 2 世代で最も能力の高い embedding モデル。 16 個の第 1 世代モデルの置き換え。 [詳細](https://openai.com/index/new-and-improved-embedding-model/) | 1,536 |
-
-### 料金
-
-| モデル | 使用（ 1k トークン） |
+| モデル | 出力次元 |
 | --- | --- |
-| `text-embedding-3-large` | $0.00013 |
-| `text-embedding-3-small` | $0.00002 |
-| `ada v2` | $0.00010 |
+| `text-embedding-3-large` （英語と非英語タスクの両方で最も高性能な embedding モデル） | 3,072 |
+| `text-embedding-3-small` （第 2 世代 ada embedding モデルからパフォーマンスが向上） | 1,536 |
+| `text-embedding-ada-002` （最も高性能な第 2 世代 embedding モデル、16 の第 1 世代モデルを置き換え） | 1,536 |
 
 ## Moderation
 
-テキストがセンシティブであったり安全でなかったりすることを検出できる、ファインチューニングされたモデル。
+Moderation モデルは、コンテンツが OpenAI の [利用規約](https://openai.com/policies/usage-policies) に準拠しているかどうかを確認するように設計されています。これらのモデルは、ヘイト、自傷、性的コンテンツ、暴力などのカテゴリーでコンテンツを分類する機能を提供します。テキストと画像のモデレーションについては、モデレーションガイドをご覧ください。
 
-| モデル | 説明 | 最大トークン |
-| --- | --- | --- |
-| `omni-moderation-latest` | 現在 `omni-moderation-2024-09-26` を指す。 | 32,768 |
-| `omni-moderation-2024-09-26` | マルチモーダルもでレーションモデルの最新バージョン。テキストと画像の分析が可能。 | 32,768 |
-| `text-moderation-latest` | 現在 `text-moderation-007` を指す。 | 32,768 |
-| `text-moderation-stable` | 現在 `text-moderation-007` を指す。 | 32,768 |
-| `text-moderation-007` | すべてのカテゴリーで最も能力の高い moderation モデル。 [詳細](https://openai.com/index/new-embedding-models-and-api-updates/) | 32,768 |
+| モデル | 最大トークン |
+| --- | --- |
+| `omni-moderation-latest` （現在 `omni-moderation-2024-09-26` を指します） | 32,768 |
+| `omni-moderation-2024-09-26` （テキストと画像の両方を分析できる新しいマルチモーダルモデレーションモデルの最新バージョン） | 32,768 |
+| `text-moderation-latest` （現在 `text-moderation-007` を指します） | 32,768 |
+| `text-moderation-stable` （現在 `text-moderation-007` を指します） | 32,768 |
+| `text-moderation-007` （以前の世代のテキストのみのモデレーション。今後は `omni-moderation-*` モデルがベストな選択肢になると予想されます） | 32,768 |
 
 ## GPT base
 
-自然言語やコードを理解・生成できるがインストラクションでの学習ができないモデル群。
-オリジナルの GPT-3 ベースモデルの置き換えとして作られた。
-レガシーな Completions API を使う。
-ほとんどのユーザーにはこれらではなく GPT-3.5 か GPT-4 の利用が推奨される。
+GPT base モデルは自然言語やコードを理解・生成できますが、インストラクション遵守のトレーニングは受けていません。これらのモデルは元の GPT-3 base モデルの置き換えとして作られ、レガシーな Completions API を使用します。ほとんどのユーザーは GPT-3.5 または GPT-4 を使用することを推奨します。
 
-| モデル | 説明 | 最大トークン | トレーニングデータ |
-| --- | --- | --- | --- |
-| `babbage-002` | GPT-3 `ada` と `babbage` ベースモデルの置き換え。 | 16,384 トークン | 2021/09 まで |
-| `davinci-002` | GPT-3 `curie` と `davinci` ベースモデルの置き換え。  | 16,384 トークン | 2021/09 まで |
-
-### 料金
-
-| モデル | 使用（ 1k トークン） |
-| --- | --- |
-| `davinci-002` | $0.0020 |
-| `babbage-002` | $0.0004 |
+| モデル | 最大トークン | ナレッジカットオフ |
+| --- | --- | --- |
+| `babbage-002` （GPT-3 ada および babbage base モデルの置き換え） | 16,384 トークン | 2021年9月 |
+| `davinci-002` （GPT-3 curie および davinci base モデルの置き換え） | 16,384 トークン | 2021年9月 |
 
 ## データの使用ポリシー
 
-2023/03/01 時点で（明示的にオプトインしないかぎり） OpenAI API に送信されたデータは OpenAI のモデルのトレーングには使わない、とのこと。
-ただし、不正使用の特定のためにデータは最長 30 日間保持されることがある。
+あなたのデータはあなたのものです。
 
-> [!NOTE]
-> デフォルトの使用ポリシーはエンドポイントごとに異なるため公式ドキュメンテーションを参考してください。
+2023年3月1日以降 OpenAI API に送信されたデータは OpenAI のモデルのトレーニングや改善には使われません（明示的にデータ共有にオプトインしないかぎり）。
 
-このデータポリシーは API 経由ではない ChatGPT や DALL·E Labs のサービスには適用されない（つまり、 ChatGPT や DALL·E Labs でユーザーが送信したデータはモデルのトレーニングに使用されることがある）。
+不正使用を特定するため、API データは最大30日間保持される場合があり、その後削除されます（法律で別途要求される場合を除く）。機密性の高いアプリケーションを持つ信頼できるお客様には、ゼロデータ保持が利用可能な場合があります。ゼロデータ保持では、リクエストとレスポンスの本文はログ機構に永続化されず、リクエストに応答するためにメモリ内にのみ存在します。
 
-> ## How we use your data
-> 
-> Your data is your data.
-> 
-> As of March 1, 2023, data sent to the OpenAI API will not be used to train or improve OpenAI models (unless you explicitly opt-in to share data with us, such as by [providing feedback in the Playground](https://help.openai.com/en/articles/9883556-providing-feedback-in-the-api-playground)). One advantage to opting in is that the models may get better at your use case over time.
-> 
-> To help identify abuse, API data may be retained for up to 30 days, after which it will be deleted (unless otherwise required by law). For trusted customers with sensitive applications, zero data retention may be available. With zero data retention, request and response bodies are not persisted to any logging mechanism and exist only in memory in order to serve the request.
->
-> Note that this data policy does not apply to OpenAI's non-API consumer services like [ChatGPT](https://chat.openai.com/) or [DALL·E Labs](https://labs.openai.com/).
->
-> https://platform.openai.com/docs/models/how-we-use-your-data
+このデータポリシーは ChatGPT や DALL·E Labs などの OpenAI の非 API 消費者向けサービスには適用されません。
 
-## Deprecated
-
-非推奨となったモデルの全リストと代替案。
-
-> [!NOTE]
-> シャットダウン日が過ぎているものは除外しています。
-
-## 2024-10-02: Assistants API beta v1
-
-| モデル | 推奨される移行先 | シャットダウン日 |
-| --- | --- | --- |
-| OpenAI-Beta: assistants=v1 | OpenAI-Beta: assistants=v2 | 2024-12-18 |
-
-## 2024-08-29: babbage-002 と davinci-002 のファインチューニングトレーニング
-
-| モデル | 推奨される移行先 | シャットダウン日 |
-| --- | --- | --- |
-| `babbage-002` の新たなファインチューニング | `gpt-4o-mini` | 2024/10/28 |
-| `davinci-002` の新たなファインチューニング | `gpt-4o-mini` | 2024/10/28 |
-
-## 2024/06/06: GPT-4-32K とビジョンプレビューモデル
-
-| モデル | 推奨される移行先 | シャットダウン日 |
-| --- | --- | --- |
-| `gpt-4-32k` | `gpt-4o` | 2025/06/06 |
-| `gpt-4-32k-0613` | `gpt-4o` | 2025/06/06 |
-| `gpt-4-32k-0314` | `gpt-4o` | 2025/06/06 |
-| `gpt-4-vision-preview` | `gpt-4o` | 2025/12/06 |
-| `gpt-4-1106-vision-preview` | `gpt-4o` | 2025/12/06 |
-
-### 2023/11/06: チャットモデルのアップデート
-
-| モデル | 推奨される移行先 | シャットダウン日 |
-| --- | --- | --- |
-| `gpt-3.5-turbo-0613` | `gpt-3.5-turbo-1106` | 2024/06/13 |
-| `gpt-3.5-turbo-16k-0613` | `gpt-3.5-turbo-1106` | 2024/06/13 |
-
-### 2023/06/13: チャットモデルのアップデート
-
-| モデル | 推奨される移行先 | シャットダウン日 |
-| --- | --- | --- |
-| `gpt-3.5-turbo-0301` | `gpt-3.5-turbo-0613` | 早ければ 2024/06/13 |
-| `gpt-4-0314` | `gpt-4-0613` | 早ければ 2024/06/13 |
-| `gpt-4-32k-0314` | `gpt-4-32k-0613` | 早ければ 2024/06/13 |
-
-## 公式ページ
+## 公式ページ                           
 
 - [Models - OpenAI API](https://platform.openai.com/docs/models)
 - [Deprecations - OpenAI API](https://platform.openai.com/docs/deprecations)
