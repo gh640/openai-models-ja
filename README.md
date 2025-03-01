@@ -1,6 +1,6 @@
 # OpenAI モデル一覧（日本語）
 
-**最終更新日: 2025/02/19** （ OpenAI の Models ページの構造に合わせて書き換えました）
+**最終更新日: 2025/03/01**
 
 OpenAI が提供する各種モデルの一覧とその特徴をまとめています。
 
@@ -37,15 +37,15 @@ OpenAI が提供する各種モデルの一覧とその特徴をまとめてい�
 
 GPT モデルは高速で汎用性が高くコスト効率がよくカスタマイズ可能です。
 
-- [GPT-4o を使用](#gpt-4o)
-- [GPT-4o mini を使用](#gpt-4o-mini)
+- [GPT-4.5-preview](#gpt-4-5)
+- [GPT-4o-mini](#gpt-4o-mini)
 
 ### Reasoning モデル
 
 Reasoning モデルは Chain-of-Thought 推論を使用して複雑なタスクで優れた性能を発揮します。
 
-- [o1 を使用](#o1-と-o1-mini)
-- [o3-mini を使用](#o3-mini)
+- [o1](#o1-と-o1-mini)
+- [o3-mini](#o3-mini)
 
 ## モデル概要
 
@@ -98,6 +98,7 @@ OpenAI API は異なる機能と価格帯を持つ多様なモデルで構成さ
 
 | エイリアス | ポイント先 |
 | --- | --- |
+| `gpt-4.5-preview` | `gpt-4.5-preview-2025-02-27` |
 | `gpt-4o` | `gpt-4o-2024-08-06` |
 | `chatgpt-4o-latest` | `ChatGPT で使われる最新版` |
 | `gpt-4o-mini` | `gpt-4o-mini-2024-07-18` |
@@ -108,6 +109,17 @@ OpenAI API は異なる機能と価格帯を持つ多様なモデルで構成さ
 | `gpt-4o-realtime-preview` | `gpt-4o-realtime-preview-2024-12-17` |
 | `gpt-4o-mini-realtime-preview` | `gpt-4o-mini-realtime-preview-2024-12-17` |
 | `gpt-4o-audio-preview` | `gpt-4o-audio-preview-2024-12-17` |
+
+## GPT-4.5
+
+これは GPT-4.5 のリサーチプレビュー版で、 OpenAI のモデルの中で最も大きく性能の高い GPT モデルです。ナレッジカットオフは **2023 年 10 月** で、創造的なタスクやエージェント的な計画で優れた能力を発揮します。テキストと画像入力を受け付け、テキスト出力（ Structued Outputs を含む）を生成します。また、 function calling や Batch API 、ストリーミングなどの主要な開発者機能をサポートしています。
+
+GPT-4.5 は文章執筆や学習、新しいアイデアの模索など、よりクリエイティブでオープンエンドな思考が必要なタスクに特に強みを発揮します。
+
+| モデル | コンテキストウィンドウ | 最大出力トークン |
+| --- | --- | --- |
+| `gpt-4.5-preview` ↳ `gpt-4.5-preview-2025-02-27` | - | - |
+| `gpt-4.5-preview-2025-02-27` | 128,000 トークン | 16,384 トークン |
 
 ## GPT-4o
 
