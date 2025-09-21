@@ -8,6 +8,7 @@ import os
 import sys
 from dataclasses import asdict, dataclass, fields
 from datetime import datetime
+from typing import Self, TextIO
 
 from openai import OpenAI
 from openai.types.model import Model as OpenAIModel
@@ -28,6 +29,14 @@ class Model:
     def fieldnames(cls) -> list[str]:
         return [x.name for x in fields(cls)]
 
+    @classmethod
+    def from_raw(cls, model) -> Self:
+        return cls(
+            id=model.id,
+            owned_by=model.owned_by,
+            created=dt_from_ts(model.created),
+        )
+
 
 def main():
     api_key = os.getenv("OPENAI_API_KEY")
@@ -39,18 +48,12 @@ def main():
     pages = client.models.list().iter_pages()
 
     models = (m for page in pages for m in page.data if is_official_model(m))
-    models = [
-        Model(id=m.id, owned_by=m.owned_by, created=dt_from_ts(m.created))
-        for m in models
-    ]
-
-    # 最新のものから順に並べる
-    models.sort(key=lambda x: x.created, reverse=True)
+    models = (Model.from_raw(m) for m in models)
+    # 最新順
+    models = sorted(models, key=lambda x: x.created, reverse=True)
 
     # 出力する
-    writer = csv.DictWriter(sys.stdout, fieldnames=Model.fieldnames())
-    writer.writeheader()
-    writer.writerows(asdict(m) for m in models)
+    write_to_csv(sys.stdout, models)
 
 
 def is_official_model(model: OpenAIModel) -> bool:
@@ -63,6 +66,12 @@ def is_user_model(model: OpenAIModel) -> bool:
 
 def dt_from_ts(ts: int) -> datetime:
     return datetime.fromtimestamp(ts)
+
+
+def write_to_csv(file: TextIO, models: list[Model]) -> None:
+    writer = csv.DictWriter(file, fieldnames=Model.fieldnames())
+    writer.writeheader()
+    writer.writerows(asdict(m) for m in models)
 
 
 if __name__ == "__main__":
