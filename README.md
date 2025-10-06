@@ -193,6 +193,7 @@ OpenAI の最も強力なオープンウェイトモデル。 H100 GPU 1枚で�
 - o3-deep-research
 - o4-mini-deep-research
 - GPT Image 1
+- gpt-image-1-mini
 - DALL·E 3
 - GPT-4o mini TTS
 - GPT-4o Transcribe
