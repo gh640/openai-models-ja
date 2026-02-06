@@ -56,19 +56,19 @@ def main():
     write_to_csv(sys.stdout, models)
 
 
-def is_official_model(model: OpenAIModel) -> bool:
+def is_official_model(model: OpenAIModel):
     return not is_user_model(model)
 
 
-def is_user_model(model: OpenAIModel) -> bool:
+def is_user_model(model: OpenAIModel):
     return model.owned_by.startswith("user-")
 
 
-def dt_from_ts(ts: int) -> datetime:
+def dt_from_ts(ts: int):
     return datetime.fromtimestamp(ts)
 
 
-def write_to_csv(file: TextIO, models: list[Model]) -> None:
+def write_to_csv(file: TextIO, models: list[Model]):
     writer = csv.DictWriter(file, fieldnames=Model.fieldnames())
     writer.writeheader()
     writer.writerows(asdict(m) for m in models)
