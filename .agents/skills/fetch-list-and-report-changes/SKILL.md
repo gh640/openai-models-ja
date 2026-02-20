@@ -24,7 +24,7 @@ Prefer the bundled script for deterministic output.
 
 ## Commands
 
-Run from anywhere:
+Run from project root:
 
 ```bash
 python3 .agents/skills/fetch-list-and-report-changes/scripts/fetch_and_report.py /path/to/repo

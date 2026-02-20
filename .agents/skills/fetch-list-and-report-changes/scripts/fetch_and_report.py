@@ -4,6 +4,7 @@ from __future__ import annotations
 import csv
 import os
 import re
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -49,19 +50,12 @@ def main() -> int:
         return fail(f"scripts/diff_latest.py not found in workspace: {workspace}")
     if not os.getenv("OPENAI_API_KEY"):
         return fail("OPENAI_API_KEY is not set")
+    if shutil.which("delta") is None:
+        return fail("`delta` command is not installed")
 
     list_result = subprocess.run([str(list_models)], cwd=workspace)
     if list_result.returncode != 0:
         return list_result.returncode
-
-    diff_result = subprocess.run([sys.executable, str(diff_latest)], cwd=workspace)
-    raw_diff_exit = diff_result.returncode
-    if raw_diff_exit == 0:
-        diff_status = "unchanged"
-    elif raw_diff_exit == 1:
-        diff_status = "changed"
-    else:
-        return fail(f"diff_latest.py failed with exit code: {raw_diff_exit}", raw_diff_exit)
 
     out_dir = workspace / "scripts" / "out"
     if not out_dir.is_dir():
@@ -82,11 +76,17 @@ def main() -> int:
     if not latest_file.is_file() or not previous_file.is_file():
         return fail("snapshot CSV files not found")
 
+    diff_result = subprocess.run([sys.executable, str(diff_latest)], cwd=workspace)
+    raw_diff_exit = diff_result.returncode
+    if raw_diff_exit not in (0, 1):
+        return fail(f"diff_latest.py failed with exit code: {raw_diff_exit}", raw_diff_exit)
+
     latest_rows = read_csv_rows(latest_file)
     previous_rows = read_csv_rows(previous_file)
 
     added = sorted(latest_rows - previous_rows)
     removed = sorted(previous_rows - latest_rows)
+    diff_status = "changed" if (added or removed) else "unchanged"
 
     print(f"REPORT_CSV_PATH={latest_file}")
     print(f"REPORT_COMPARE_PREVIOUS={previous}")
