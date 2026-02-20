@@ -426,7 +426,6 @@ Codex （や Codex の類似環境）でのエージェント的コーディン�
 - GPT-4o Turbo
 - babbage-002
 - ChatGPT-4o
-- codex-mini-latest
 - DALL·E 2
 - davinci-002
 - GPT-3.5 Turbo

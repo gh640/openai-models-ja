@@ -22,7 +22,9 @@ def main() -> int:
     last, previous = sorted(dated_dirs, key=lambda x: x.name, reverse=True)[:2]
 
     try:
-        result = subprocess.run(["delta", str(previous), str(last)], check=False)
+        result = subprocess.run(
+            ["delta", "--paging=never", str(previous), str(last)], check=False
+        )
     except FileNotFoundError:
         eprint("`delta` コマンドが見つかりません")
         return 1
