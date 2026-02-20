@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fetch List and Report Changes"
+  short_description: "Fetch latest models CSV and report diffs"
+  default_prompt: "Fetch the latest model list into CSV and report changes from the previous snapshot."
