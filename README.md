@@ -1,6 +1,6 @@
 # OpenAI API モデル一覧（日本語）
 
-**最終更新日: 2026/07/10**
+**最終更新日: 2026/07/14**
 
 [OpenAI 公式 Models ページ](https://developers.openai.com/api/docs/models) をもとに OpenAI が提供するモデルについて日本語でまとめています。料金や仕様は変更される可能性があるため最新情報は必ず公式サイトでご確認ください。
 
@@ -92,7 +92,7 @@ OpenAI API は多様なワークロードに対応する複数のモデル群で
 
 ### GPT-5.5
 
-コーディングとプロフェッショナルワーク向けの最新フロンティアモデル。複雑な推論やコーディングで最初に選ぶモデルとして案内されています。 `reasoning.effort` は `none` / `low` / `medium` / `high` / `xhigh` をサポートします。
+コーディングとプロフェッショナルワーク向けの旧世代フロンティアモデル。複雑な推論やコーディングで利用できます。 `reasoning.effort` は `none` / `low` / `medium` / `high` / `xhigh` をサポートします。
 
 - Reasoning: 最高
 - Speed: 高速
