@@ -1,6 +1,6 @@
 # OpenAI API モデル一覧（日本語）
 
-**最終更新日: 2026/07/14**
+**最終更新日: 2026/08/02**
 
 [OpenAI 公式 Models ページ](https://developers.openai.com/api/docs/models) をもとに OpenAI が提供するモデルについて日本語でまとめています。料金や仕様は変更される可能性があるため最新情報は必ず公式サイトでご確認ください。
 
@@ -471,6 +471,24 @@ Chat Completions REST API で利用できる gpt-audio のコスト効率のよ�
 - 出力モダリティ: テキスト
 - 特徴: Realtime transcription session で `audio.input.transcription.model` に指定して利用します。ファイルやリクエスト・レスポンス型の文字起こし全般の置き換えではなく、ライブ音声での遅延と精度の要件に応じて評価するモデルです。
 
+#### gpt-live-transcribe
+
+ライブ音声から低レイテンシーの transcript delta を取得するストリーミング speech-to-text モデル。レイテンシーを調整でき、非構造化コンテキスト、キーワードヒント、言語ヒントに対応します。
+
+- 価格: リアルタイム音声 1 分あたり $0.017
+- 入力モダリティ: テキスト・音声
+- 出力モダリティ: テキスト
+- 特徴: 低遅延の Realtime transcription 向け。ストリーミングに対応し、function calling と structured outputs には対応していません。
+
+#### gpt-transcribe
+
+高精度な speech-to-text モデル。完了した音声ファイル、ストリーミング中のファイル文字起こし、WebSocket の Realtime セッションで確定したターンの文字起こしに対応します。非構造化コンテキスト、キーワードヒント、言語ヒントも利用できます。
+
+- 価格: 文字起こし音声 1 分あたり $0.0045
+- 入力モダリティ: テキスト・音声
+- 出力モダリティ: テキスト
+- 特徴: ファイル文字起こしと Realtime 入力の確定ターンの文字起こしに対応します。
+
 #### その他のリアルタイム・音声モデル
 
 - gpt-audio
@@ -817,10 +835,12 @@ ChatGPT で現在使われている GPT-5.3 Instant スナップショットを�
 
 ### 文字起こしモデル
 
-| モデル | 用途 | 入力 | 出力 | 推定コスト |
+| モデル | 用途 | 入力 | 出力 | コスト（推定/実際） |
 | --- | --- | --- | --- | --- |
-| gpt-4o-transcribe | Transcription | $2.50 | $10.00 | $0.006 / minute |
-| gpt-4o-mini-transcribe | Transcription | $1.25 | $5.00 | $0.003 / minute |
+| gpt-live-transcribe | Realtime transcription | - | - | 実際: $0.017 / minute |
+| gpt-transcribe | Transcription / Realtime input transcription | - | - | 実際: $0.0045 / minute |
+| gpt-4o-transcribe | Transcription | $2.50 | $10.00 | 推定: $0.006 / minute |
+| gpt-4o-mini-transcribe | Transcription | $1.25 | $5.00 | 推定: $0.003 / minute |
 
 ### 特化モデル
 
