@@ -1,6 +1,6 @@
 # OpenAI API モデル一覧（日本語）
 
-**最終更新日: 2026/09/09**
+**最終更新日: 2026/09/11**
 
 [OpenAI 公式 Models ページ](https://developers.openai.com/api/docs/models) をもとに OpenAI が提供するモデルについて日本語でまとめています。料金や仕様は変更される可能性があるため最新情報は必ず公式サイトでご確認ください。
 
@@ -12,12 +12,16 @@
 - [フロンティアモデル](#フロンティアモデル)
 - [その他フロンティアモデル](#その他フロンティアモデル)
 - [特化モデル](#特化モデル)
+  - [OpenAI Daybreak](#openai-daybreak)
   - [画像](#画像)
   - [動画](#動画)
   - [リアルタイム・音声](#リアルタイム音声)
+  - [音声生成](#音声生成)
+  - [文字起こし](#文字起こし)
   - [コーディング](#コーディング)
   - [ディープリサーチ](#ディープリサーチ)
   - [オープンウェイト](#オープンウェイト)
+  - [Embedding](#embedding)
   - [ChatGPT](#chatgpt)
 - [その他](#その他)
 - [価格](#価格)
@@ -32,10 +36,10 @@ OpenAI API は多様なワークロードに対応する複数のモデル群で
 
 | カテゴリ | 概要 |
 | --- | --- |
-| フロンティアモデル | 公式 Models ページで主要モデルとして案内されている最新世代の汎用モデル。 |
-| その他フロンティアモデル | 公式の Frontier models に含まれる、上位版・小型版・旧世代の汎用モデル。 |
-| 特化モデル | 画像、動画、リアルタイム・音声、コーディング、ディープリサーチ、オープンウェイト、ChatGPT 向けモデル。 |
-| その他 | 上記の公式カテゴリに当てはまらない既存モデルや、More models 相当のモデル。 |
+| フロンティアモデル | 公式 Models ページの Flagship models に掲載されている最新世代の汎用モデル。 |
+| その他フロンティアモデル | 主要モデル以外の上位版・小型版・旧世代の汎用モデル。 |
+| 特化モデル | OpenAI Daybreak、画像、動画、Realtime、音声生成、文字起こし、コーディング、ディープリサーチ、オープンウェイト、Embedding、ChatGPT 向けモデル。 |
+| その他 | 公式の More models 相当の既存モデルや、非推奨モデル。 |
 
 ## フロンティアモデル
 
@@ -61,9 +65,9 @@ OpenAI の最も高性能なモデル。複雑な推論、コーディング、�
 複雑なプロフェッショナルワーク、推論、コーディング向けの GPT-5.6 系フロンティアモデル。 `gpt-5.6` エイリアスはこのモデルにルーティングされます。
 
 - モデル ID: `gpt-5.6-sol`（エイリアス: `gpt-5.6`）
-- Reasoning: 最高
-- Speed: 高速
-- 価格（1M トークンあたり）: 入力 $5.00 / キャッシュ入力 $0.50 / 出力 $30.00
+- Reasoning: `none` / `low` / `medium` / `high` / `xhigh` / `max`（`medium` がデフォルト）
+- 価格（1M トークンあたり）: 入力 $4.00 / キャッシュ入力 $0.40 / 出力 $20.00
+- 272K を超える入力トークンのプロンプト: 入力料金は 2 倍、出力料金は 1.5 倍
 - コンテキストウィンドウ: 1,050,000
 - 最大出力トークン: 128,000
 - ナレッジカットオフ: 2026/02/16
@@ -76,9 +80,9 @@ OpenAI の最も高性能なモデル。複雑な推論、コーディング、�
 知能とコストのバランスを取る GPT-5.6 系モデル。従来の GPT-5 系における mini 相当の位置付けです。
 
 - モデル ID: `gpt-5.6-terra`
-- Reasoning: 高
-- Speed: 高速
-- 価格（1M トークンあたり）: 入力 $2.50 / キャッシュ入力 $0.25 / 出力 $15.00
+- Reasoning: `none` / `low` / `medium` / `high` / `xhigh` / `max`（`medium` がデフォルト）
+- 価格（1M トークンあたり）: 入力 $2.00 / キャッシュ入力 $0.20 / 出力 $12.00
+- 272K を超える入力トークンのプロンプト: 入力料金は 2 倍、出力料金は 1.5 倍
 - コンテキストウィンドウ: 1,050,000
 - 最大出力トークン: 128,000
 - ナレッジカットオフ: 2026/02/16
@@ -91,9 +95,9 @@ OpenAI の最も高性能なモデル。複雑な推論、コーディング、�
 コスト重視かつ高ボリュームのワークロード向けに最適化された GPT-5.6 系モデル。従来の GPT-5 系における nano 相当の位置付けです。
 
 - モデル ID: `gpt-5.6-luna`
-- Reasoning: 高
-- Speed: 高速
-- 価格（1M トークンあたり）: 入力 $1.00 / キャッシュ入力 $0.10 / 出力 $6.00
+- Reasoning: `none` / `low` / `medium` / `high` / `xhigh` / `max`（`medium` がデフォルト）
+- 価格（1M トークンあたり）: 入力 $0.20 / キャッシュ入力 $0.02 / 出力 $1.20
+- 272K を超える入力トークンのプロンプト: 入力料金は 2 倍、出力料金は 1.5 倍
 - コンテキストウィンドウ: 1,050,000
 - 最大出力トークン: 128,000
 - ナレッジカットオフ: 2026/02/16
@@ -247,11 +251,65 @@ GPT-5.1 以前のフラグシップモデル。高精度な推論とコード支
 
 ## 特化モデル
 
-画像、動画、リアルタイム・音声、コーディング、ディープリサーチ、オープンウェイト、ChatGPT 向けのモデル群です。
+公式 Models ページの Specialized models に掲載されている、用途別のモデル群です。
+
+### OpenAI Daybreak
+
+認可済みの防御目的のサイバーセキュリティ研究・テスト向けモデル群です。利用には別途承認とプロビジョニングが必要です。
+
+#### GPT-5.6 Cyber
+
+高度な脆弱性研究、エクスプロイト検証、セキュリティテスト向けに訓練されたモデルです。
+
+- モデル ID: `gpt-5.6-cyber`
+- コンテキストウィンドウ: 400,000
+- 最大出力トークン: 128,000
+- 入力モダリティ: テキスト・画像
+- 出力モダリティ: テキスト
+
+#### Daybreak Red
+
+高度なサイバーセキュリティモデルへのエイリアスです。認可済みの防御者による脆弱性研究、エクスプロイト検証、セキュリティテスト向けです。
+
+- モデル ID: `gpt-daybreak-red-latest`
+- 特徴: ストリーミング、function calling、structured outputs、Responses API の各種ツールに対応
+
+#### Daybreak Blue
+
+防御目的のサイバーセキュリティ用途向けに安全策を調整した、フロンティア汎用モデルへのエイリアスです。
+
+- モデル ID: `gpt-daybreak-blue-latest`
+- 特徴: ストリーミング、function calling、structured outputs、Responses API の各種ツールに対応
 
 ### 画像
 
 画像生成と編集向けのモデル群です。
+
+#### GPT Image 2.5 Sunburst
+
+画像生成と編集における精度を重視した、GPT Image 2.5 系の最上位モデルです。テキスト・画像入力から画像を生成し、Image API または Responses API の画像生成ツールで利用できます。
+
+- モデル ID: `gpt-image-2.5-sunburst`（スナップショット: `gpt-image-2.5-sunburst-2026-09-08`）
+- 品質設定: `low` / `medium` / `high` / `xhigh` / `max` / `auto`
+- 価格（1M トークンあたり）:
+  - テキストトークン: 入力 $5.00 / キャッシュ入力 $1.25
+  - 画像トークン: 入力 $8.00 / キャッシュ入力 $2.00 / 出力 $30.00
+- 入力モダリティ: テキスト・画像
+- 出力モダリティ: 画像
+- 特徴: ストリーミング、function calling、structured outputs には非対応
+
+#### GPT Image 2.5 Flare
+
+日常的な画像生成を高速に行う GPT Image 2.5 系モデルです。テキスト・画像入力から画像を生成し、Image API または Responses API の画像生成ツールで利用できます。
+
+- モデル ID: `gpt-image-2.5-flare`（スナップショット: `gpt-image-2.5-flare-2026-09-08`）
+- 品質設定: `low` / `medium` / `high` / `xhigh` / `max` / `auto`
+- 価格（1M トークンあたり）:
+  - テキストトークン: 入力 $5.00 / キャッシュ入力 $1.25
+  - 画像トークン: 入力 $8.00 / キャッシュ入力 $2.00 / 出力 $30.00
+- 入力モダリティ: テキスト・画像
+- 出力モダリティ: 画像
+- 特徴: ストリーミング、function calling、structured outputs には非対応
 
 #### GPT Image 2
 
@@ -283,8 +341,6 @@ GPT-5.1 以前のフラグシップモデル。高精度な推論とコード支
 - chatgpt-image-latest
 - GPT Image 1
 - gpt-image-1-mini
-- DALL·E 3
-- DALL·E 2
 
 ### 動画
 
@@ -314,6 +370,17 @@ GPT-5.1 以前のフラグシップモデル。高精度な推論とコード支
 ### リアルタイム・音声
 
 リアルタイム会話、音声入出力、文字起こし向けのモデル群です。
+
+#### GPT-Live 1
+
+自然で表現力のある音声会話と、滑らかな割り込み処理に対応する全二重音声モデルです。音声を聞きながら同時に話すことができ、推論やツール利用をバックエンドエージェントに委譲できます。
+
+- モデル ID: `gpt-live-1`
+- 価格: ライブセッション 1 分あたり $0.05（秒単位で実際に課金。1 分未満を切り上げない）
+- 入力モダリティ: テキスト・音声
+- 出力モダリティ: テキスト・音声
+- エンドポイント: Live API `v1/live/sessions`
+- 特徴: ストリーミングと function calling に対応。バックエンドのモデル・ツール利用料は別途発生します。
 
 #### gpt-realtime-2.1
 
@@ -457,6 +524,17 @@ Chat Completions REST API で利用できる gpt-audio のコスト効率のよ�
 - 入力モダリティ: テキスト・音声
 - 出力モダリティ: テキスト・音声
 
+#### その他のリアルタイム・音声モデル
+
+- gpt-audio
+- GPT-4o Transcribe
+- GPT-4o mini Transcribe
+- TTS-1
+- TTS-1 HD
+- Whisper
+
+### 文字起こし
+
 #### GPT-4o Transcribe Diarize
 
 話者ダイアライゼーション（話者特定）機能を備えた自動音声認識（ASR）モデル。会話音声を話者ごとのセグメントに紐づけながら文字起こしでき、Transcriptions API で利用できます。
@@ -504,19 +582,18 @@ Chat Completions REST API で利用できる gpt-audio のコスト効率のよ�
 - 出力モダリティ: テキスト
 - 特徴: ファイル文字起こしと Realtime 入力の確定ターンの文字起こしに対応します。
 
-#### その他のリアルタイム・音声モデル
+### 音声生成
 
-- gpt-audio
-- GPT-4o Audio
-- GPT-4o mini Audio
-- GPT-4o Realtime
-- GPT-4o mini Realtime
-- GPT-4o Transcribe
-- GPT-4o mini Transcribe
-- GPT-4o mini TTS
-- TTS-1
-- TTS-1 HD
-- Whisper
+テキストを自然な音声へ変換するモデル群です。
+
+#### gpt-4o-mini-tts
+
+GPT-4o Mini を基盤とするテキスト読み上げモデルです。入力テキストから自然な音声を生成します。入力トークンの上限は 2,000 です。
+
+- モデル ID: `gpt-4o-mini-tts`
+- 価格（1M トークンあたり）: テキスト入力 $0.60 / 音声出力 $12.00
+- 入力モダリティ: テキスト
+- 出力モダリティ: 音声
 
 ### コーディング
 
@@ -604,10 +681,6 @@ GPT-5.1-Codex を小型化したコスト効率モデル。Responses API で Cod
 - 入力モダリティ: テキスト・画像
 - 出力モダリティ: テキスト・画像
 - 特徴: 「Smaller, more cost-effective, less-capable version of GPT-5.1-Codex」として案内されており、推論負荷を抑えてもエージェント的コーディングワークフローを維持できる。
-
-#### その他のコーディングモデル
-
-- codex-mini-latest (deprecated)
 
 ### ディープリサーチ
 
@@ -761,33 +834,33 @@ ChatGPT で現在使われている GPT-5.3 Instant スナップショットを�
 - computer-use-preview
 - GPT-4o mini Search Preview
 - GPT-4o Search Preview
-- GPT-4.5 Preview (deprecated)
 - o3-mini
 - o1
 - omni-moderation
-- o1-mini (deprecated)
-- o1 Preview (deprecated)
 - GPT-4o
 - GPT-4o mini
-- GPT-4o Turbo
 - babbage-002
 - ChatGPT-4o
 - davinci-002
 - GPT-3.5 Turbo
 - GPT-4
-- GPT-4 Turbo Preview
+- GPT-4 Turbo
 - GPT-5.3 Chat
 - GPT-5.2 Chat
 - GPT-5.1 Chat
 - GPT-5 Chat
-- text-embedding-3-large
-- text-embedding-3-small
-- text-embedding-ada-002
-- text-moderation (deprecated)
-- text-moderation-stable (deprecated)
+
+### Embedding
+
+テキストをベクトル表現へ変換するモデル群です。
+
+- `text-embedding-3-large`
+- `text-embedding-3-small`
+- `text-embedding-ada-002`
+
 ## 価格
 
-- 多くの料金は 1M トークンあたりです。動画生成モデルは 1 秒あたり、文字起こしモデルは推定コストも併記しています。
+- 多くの料金は 1M トークンあたりです。動画生成モデルは 1 秒あたり、音声セッション・文字起こしモデルは時間あたりの実際のコストも併記しています。
 - 料金は基本的に使用トークン数に基づきます。 Responses API でツールを呼び出す場合はツール呼び出しごとに追加料金が発生することがあります。
 - Batch API を利用すると割引料金が適用されます。
 - 以下は `Standard` の主な価格です。最新の `Batch` / `Flex` / `Priority` は公式 Pricing ページを参照してください。
@@ -797,15 +870,17 @@ ChatGPT で現在使われている GPT-5.3 Instant スナップショットを�
 | モデル | 短コンテキスト入力 | 短コンテキストキャッシュ入力 | 短コンテキスト出力 | 長コンテキスト入力 | 長コンテキストキャッシュ入力 | 長コンテキスト出力 |
 | --- | --- | --- | --- | --- | --- | --- |
 | GPT-6 Astra (`gpt-6-astra`) | $10.00 | $1.00 | $50.00 | $20.00 | $2.00 | $75.00 |
-| GPT-5.6 Sol (`gpt-5.6`) | $5.00 | $0.50 | $30.00 | $10.00 | $1.00 | $45.00 |
-| GPT-5.6 Terra | $2.50 | $0.25 | $15.00 | $5.00 | $0.50 | $22.50 |
-| GPT-5.6 Luna | $1.00 | $0.10 | $6.00 | $2.00 | $0.20 | $9.00 |
+| GPT-5.6 Sol (`gpt-5.6`) | $4.00 | $0.40 | $20.00 | $8.00 | $0.80 | $30.00 |
+| GPT-5.6 Terra | $2.00 | $0.20 | $12.00 | $4.00 | $0.40 | $18.00 |
+| GPT-5.6 Luna | $0.20 | $0.02 | $1.20 | $0.40 | $0.04 | $1.80 |
 | GPT-5.5 | $5.00 | $0.50 | $30.00 | $10.00 | $1.00 | $45.00 |
 | GPT-5.5 pro | $30.00 | - | $180.00 | - | - | - |
 | GPT-5.4 | $2.50 | $0.25 | $15.00 | $5.00 | $0.50 | $22.50 |
 | GPT-5.4 mini | $0.75 | $0.075 | $4.50 | - | - | - |
 | GPT-5.4 nano | $0.20 | $0.02 | $1.25 | - | - | - |
 | GPT-5.4 pro | $30.00 | - | $180.00 | $60.00 | - | $270.00 |
+
+長コンテキスト料金は、入力トークンが 272K を超えるプロンプト全体に適用される倍率（入力・キャッシュ 2 倍、出力 1.5 倍）を反映しています。キャッシュ書き込みは通常の入力料金の 1.25 倍です。
 
 ### リアルタイム・音声モデル
 
@@ -829,10 +904,26 @@ ChatGPT で現在使われている GPT-5.3 Instant スナップショットを�
 | gpt-realtime-translate | Audio duration | $0.034 / minute | - | - |
 | gpt-realtime-whisper | Audio duration | $0.017 / minute | - | - |
 
+### GPT-Live モデル
+
+| モデル | 課金単位 | 実際のコスト | 備考 |
+| --- | --- | --- | --- |
+| gpt-live-1 | ライブセッション時間 | $0.05 / minute | 秒単位で課金。バックエンドモデル・ツール利用料は別途 |
+
+### 音声生成モデル
+
+| モデル | モダリティ | 入力 | 出力 |
+| --- | --- | --- | --- |
+| gpt-4o-mini-tts | Text / Audio | $0.60 / 1M tokens | $12.00 / 1M tokens |
+
 ### 画像生成モデル
 
 | モデル | モダリティ | 入力 | キャッシュ入力 | 出力 |
 | --- | --- | --- | --- | --- |
+| gpt-image-2.5-sunburst | Image | $8.00 | $2.00 | $30.00 |
+| gpt-image-2.5-sunburst | Text | $5.00 | $1.25 | - |
+| gpt-image-2.5-flare | Image | $8.00 | $2.00 | $30.00 |
+| gpt-image-2.5-flare | Text | $5.00 | $1.25 | - |
 | gpt-image-2 | Image | $8.00 | $2.00 | $30.00 |
 | gpt-image-2 | Text | $5.00 | $1.25 | - |
 | gpt-image-1.5 | Image | $8.00 | $2.00 | $32.00 |
@@ -924,7 +1015,11 @@ OpenAI の API レートは組織ごとに設定された Usage tier に基づ�
 ## 参考
 
 - OpenAI Models: https://developers.openai.com/api/docs/models
-- GPT-5.5 model guide: https://developers.openai.com/api/docs/guides/latest-model
+- Model guidance: https://developers.openai.com/api/docs/guides/latest-model
+- GPT-6 Astra: https://developers.openai.com/api/docs/models/gpt-6-astra
+- GPT-Live 1: https://developers.openai.com/api/docs/models/gpt-live-1
+- GPT Image 2.5 Sunburst: https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst
+- GPT Image 2.5 Flare: https://developers.openai.com/api/docs/models/gpt-image-2.5-flare
 - Realtime prompting guide: https://developers.openai.com/api/docs/guides/realtime-models-prompting
 - Realtime translation: https://developers.openai.com/api/docs/guides/realtime-translation
 - Realtime transcription: https://developers.openai.com/api/docs/guides/realtime-transcription
