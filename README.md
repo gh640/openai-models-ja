@@ -1,6 +1,6 @@
 # OpenAI API モデル一覧（日本語）
 
-**最終更新日: 2026/09/11**
+**最終更新日: 2026/09/24**
 
 [OpenAI 公式 Models ページ](https://developers.openai.com/api/docs/models) をもとに OpenAI が提供するモデルについて日本語でまとめています。料金や仕様は変更される可能性があるため最新情報は必ず公式サイトでご確認ください。
 
@@ -43,7 +43,7 @@ OpenAI API は多様なワークロードに対応する複数のモデル群で
 
 ## フロンティアモデル
 
-公式 Models ページで主要モデルとして案内されている最新世代の汎用モデルです。
+公式 Models ページで主要モデルとして案内されている最新世代の汎用モデルです。GPT-6 シリーズは、最も高性能な Astra、知能とコストのバランスを取る Sol、高効率な Luna で構成されます。
 
 ### GPT-6 Astra
 
@@ -59,6 +59,36 @@ OpenAI の最も高性能なモデル。複雑な推論、コーディング、�
 - 入力モダリティ: テキスト・画像
 - 出力モダリティ: テキスト
 - 特徴: ストリーミング、function calling、structured outputs に対応。Responses API では web search、file search、image generation、Code Interpreter、computer use、MCP などのツールを利用できます。
+
+### GPT-6 Sol
+
+複雑なコーディングやエージェントワークフロー向けに設計された GPT-6 シリーズのモデルです。Astra より低コストで、性能とコストのバランスを取ります。
+
+- モデル ID: `gpt-6-sol`
+- Reasoning: `none` / `low` / `medium` / `high` / `xhigh` / `max`（`medium` がデフォルト）
+- 価格（1M トークンあたり）: 入力 $2.00 / キャッシュ入力 $0.20 / キャッシュ書き込み $2.50 / 出力 $10.00
+- 272K を超える入力トークンのプロンプト: 入力・キャッシュ料金は 2 倍、出力料金は 1.5 倍
+- コンテキストウィンドウ: 1,050,000
+- 最大出力トークン: 128,000
+- ナレッジカットオフ: 2026/04/20
+- 入力モダリティ: テキスト・画像
+- 出力モダリティ: テキスト
+- 特徴: ストリーミング、function calling、structured outputs に対応。Responses API で組み込みツールを利用できます。Chat Completions で function calling を使う場合は `reasoning_effort: "none"` が必要です。
+
+### GPT-6 Luna
+
+集中的なタスクを効率よく大量に処理するための GPT-6 シリーズのモデルです。コスト重視の高ボリュームなワークロードに適しています。
+
+- モデル ID: `gpt-6-luna`
+- Reasoning: `none` / `low` / `medium` / `high` / `xhigh` / `max`（`medium` がデフォルト）
+- 価格（1M トークンあたり）: 入力 $0.10 / キャッシュ入力 $0.01 / キャッシュ書き込み $0.125 / 出力 $0.50
+- 272K を超える入力トークンのプロンプト: 入力・キャッシュ料金は 2 倍、出力料金は 1.5 倍
+- コンテキストウィンドウ: 1,050,000
+- 最大出力トークン: 128,000
+- ナレッジカットオフ: 2026/05/18
+- 入力モダリティ: テキスト・画像
+- 出力モダリティ: テキスト
+- 特徴: ストリーミング、function calling、structured outputs に対応。Responses API で組み込みツールを利用できます。Chat Completions で function calling を使う場合は `reasoning_effort: "none"` が必要です。
 
 ### GPT-5.6 Sol
 
@@ -870,6 +900,8 @@ ChatGPT で現在使われている GPT-5.3 Instant スナップショットを�
 | モデル | 短コンテキスト入力 | 短コンテキストキャッシュ入力 | 短コンテキスト出力 | 長コンテキスト入力 | 長コンテキストキャッシュ入力 | 長コンテキスト出力 |
 | --- | --- | --- | --- | --- | --- | --- |
 | GPT-6 Astra (`gpt-6-astra`) | $10.00 | $1.00 | $50.00 | $20.00 | $2.00 | $75.00 |
+| GPT-6 Sol (`gpt-6-sol`) | $2.00 | $0.20 | $10.00 | $4.00 | $0.40 | $15.00 |
+| GPT-6 Luna (`gpt-6-luna`) | $0.10 | $0.01 | $0.50 | $0.20 | $0.02 | $0.75 |
 | GPT-5.6 Sol (`gpt-5.6`) | $4.00 | $0.40 | $20.00 | $8.00 | $0.80 | $30.00 |
 | GPT-5.6 Terra | $2.00 | $0.20 | $12.00 | $4.00 | $0.40 | $18.00 |
 | GPT-5.6 Luna | $0.20 | $0.02 | $1.20 | $0.40 | $0.04 | $1.80 |
@@ -1017,6 +1049,8 @@ OpenAI の API レートは組織ごとに設定された Usage tier に基づ�
 - OpenAI Models: https://developers.openai.com/api/docs/models
 - Model guidance: https://developers.openai.com/api/docs/guides/latest-model
 - GPT-6 Astra: https://developers.openai.com/api/docs/models/gpt-6-astra
+- GPT-6 Sol: https://developers.openai.com/api/docs/models/gpt-6-sol
+- GPT-6 Luna: https://developers.openai.com/api/docs/models/gpt-6-luna
 - GPT-Live 1: https://developers.openai.com/api/docs/models/gpt-live-1
 - GPT Image 2.5 Sunburst: https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst
 - GPT Image 2.5 Flare: https://developers.openai.com/api/docs/models/gpt-image-2.5-flare
