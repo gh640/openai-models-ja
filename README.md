@@ -13,6 +13,7 @@
 - [その他フロンティアモデル](#その他フロンティアモデル)
 - [特化モデル](#特化モデル)
   - [OpenAI Daybreak](#openai-daybreak)
+  - [Life sciences](#life-sciences)
   - [画像](#画像)
   - [動画](#動画)
   - [リアルタイム・音声](#リアルタイム音声)
@@ -38,7 +39,7 @@ OpenAI API は多様なワークロードに対応する複数のモデル群で
 | --- | --- |
 | フロンティアモデル | 公式 Models ページの Flagship models に掲載されている最新世代の汎用モデル。 |
 | その他フロンティアモデル | 主要モデル以外の上位版・小型版・旧世代の汎用モデル。 |
-| 特化モデル | OpenAI Daybreak、画像、動画、Realtime、音声生成、文字起こし、コーディング、ディープリサーチ、オープンウェイト、Embedding、ChatGPT 向けモデル。 |
+| 特化モデル | OpenAI Daybreak、Life sciences、画像、動画、Realtime、音声生成、文字起こし、コーディング、ディープリサーチ、オープンウェイト、Embedding、ChatGPT 向けモデル。 |
 | その他 | 公式の More models 相当の既存モデルや、非推奨モデル。 |
 
 ## フロンティアモデル
@@ -310,6 +311,19 @@ GPT-5.1 以前のフラグシップモデル。高精度な推論とコード支
 
 - モデル ID: `gpt-daybreak-blue-latest`
 - 特徴: ストリーミング、function calling、structured outputs、Responses API の各種ツールに対応
+
+### Life sciences
+
+承認済みの組織によるライフサイエンス研究向けモデルです。
+
+#### GPT-Rosalind
+
+承認された内部ライフサイエンス研究向けの推論モデルです。Trusted Access program を通じた承認が必要です。
+
+- モデル ID: `gpt-rosalind-research`
+- 価格（1M トークンあたり）: 入力 $5.00 / キャッシュ入力 $0.50 / 出力 $25.00
+- 課金開始日: 2026/10/05
+- キャッシュ書き込み料金: 対象外
 
 ### 画像
 
@@ -914,6 +928,8 @@ ChatGPT で現在使われている GPT-5.3 Instant スナップショットを�
 
 長コンテキスト料金は、入力トークンが 272K を超えるプロンプト全体に適用される倍率（入力・キャッシュ 2 倍、出力 1.5 倍）を反映しています。キャッシュ書き込みは通常の入力料金の 1.25 倍です。
 
+GPT-5.6 Sol の価格はプロモーション価格で、少なくとも 2026/11/21 までは適用されます。
+
 ### リアルタイム・音声モデル
 
 | モデル | モダリティ | 入力 | キャッシュ入力 | 出力 |
@@ -1048,12 +1064,6 @@ OpenAI の API レートは組織ごとに設定された Usage tier に基づ�
 
 - OpenAI Models: https://developers.openai.com/api/docs/models
 - Model guidance: https://developers.openai.com/api/docs/guides/latest-model
-- GPT-6 Astra: https://developers.openai.com/api/docs/models/gpt-6-astra
-- GPT-6 Sol: https://developers.openai.com/api/docs/models/gpt-6-sol
-- GPT-6 Luna: https://developers.openai.com/api/docs/models/gpt-6-luna
-- GPT-Live 1: https://developers.openai.com/api/docs/models/gpt-live-1
-- GPT Image 2.5 Sunburst: https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst
-- GPT Image 2.5 Flare: https://developers.openai.com/api/docs/models/gpt-image-2.5-flare
 - Realtime prompting guide: https://developers.openai.com/api/docs/guides/realtime-models-prompting
 - Realtime translation: https://developers.openai.com/api/docs/guides/realtime-translation
 - Realtime transcription: https://developers.openai.com/api/docs/guides/realtime-transcription
