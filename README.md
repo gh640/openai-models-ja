@@ -1,6 +1,6 @@
 # OpenAI API モデル一覧（日本語）
 
-**最終更新日: 2026/11/11**
+**最終更新日: 2026/11/18**
 
 [OpenAI 公式 Models ページ](https://developers.openai.com/api/docs/models) をもとに OpenAI が提供するモデルについて日本語でまとめています。料金や仕様は変更される可能性があるため最新情報は必ず公式サイトでご確認ください。
 
@@ -44,37 +44,39 @@ OpenAI API は多様なワークロードに対応する複数のモデル群で
 
 ## フラッグシップモデル
 
-公式 Models ページの Flagship models に掲載されている汎用モデルです。GPT-6 シリーズは、最も高性能な Astra、Astra に近い性能とコストのバランスを取る GPT-6.1 Sol、視覚的推論とコンピュータ操作に強い GPT-6.1 Terra、高効率な Luna で構成されます。
+公式 Models ページの Flagship models に掲載されている汎用モデルです。難度の高い作業向けの GPT-6.2 Astra、性能とコストのバランスを取る GPT-6.2 Sol、視覚的推論とコンピュータ操作に強い GPT-6.1 Terra、高効率な GPT-6 Luna が掲載されています。
 
-### GPT-6 Astra
+### GPT-6.2 Astra
 
 OpenAI の最も高性能なモデル。複雑な推論、コーディング、コンピュータ操作、調査、ドキュメント作成など、難しいエンドツーエンドの作業向けです。
 
-- モデル ID: `gpt-6-astra`
+- モデル ID: `gpt-6.2-astra`
 - Reasoning: `low` / `medium` / `high` / `xhigh` / `max`（推論トークン対応。`none` は非対応）
-- 価格（1M トークンあたり）: 入力 $10.00 / キャッシュ入力 $1.00 / キャッシュ書き込み $12.50 / 出力 $50.00
+- 価格（1M トークンあたり）: 入力 $8.00 / キャッシュ入力 $0.40 / キャッシュ書き込み（30 分） $10.00 / 出力 $40.00
 - 272K を超える入力トークンのプロンプト: 入力・キャッシュ料金は 2 倍、出力料金は 1.5 倍
 - コンテキストウィンドウ: 1,050,000
+- 最大入力トークン: 922,000
 - 最大出力トークン: 128,000
-- ナレッジカットオフ: 2026/04/30
+- ナレッジカットオフ: 2026/05/18
 - 入力モダリティ: テキスト・画像
 - 出力モダリティ: テキスト
 - 特徴: ストリーミング、function calling、structured outputs に対応。Responses API では web search、file search、image generation、Code Interpreter、computer use、MCP などのツールを利用できます。
 
-### GPT-6.1 Sol
+### GPT-6.2 Sol
 
-複雑なコーディング、コンピュータ操作、プロフェッショナルワーク向けのモデルです。Astra に近い性能をより低いコストで提供します。
+日常的なコーディングから大規模なエージェント運用まで、性能とコストのバランスを重視する作業向けのモデルです。
 
-- モデル ID: `gpt-6.1-sol`
-- Reasoning: `low` / `medium` / `high` / `xhigh` / `max`（`medium` がデフォルト。`none` と `minimal` は非対応）
-- 価格（1M トークンあたり）: 入力 $2.00 / キャッシュ入力 $0.10 / キャッシュ書き込み $2.50 / 出力 $10.00
+- モデル ID: `gpt-6.2-sol`
+- Reasoning: `low` / `medium` / `high` / `xhigh` / `max`（`none` は非対応）
+- 価格（1M トークンあたり）: 入力 $2.00 / キャッシュ入力 $0.10 / キャッシュ書き込み（30 分） $2.50 / 出力 $10.00
 - 272K を超える入力トークンのプロンプト: 入力・キャッシュ料金は 2 倍、出力料金は 1.5 倍
 - コンテキストウィンドウ: 1,050,000
+- 最大入力トークン: 922,000
 - 最大出力トークン: 128,000
-- ナレッジカットオフ: 2026/04/30
+- ナレッジカットオフ: 2026/06/01
 - 入力モダリティ: テキスト・画像
 - 出力モダリティ: テキスト
-- 特徴: ストリーミング、function calling、structured outputs に対応。ツール呼び出しには Responses API を使用します。Chat Completions はツール呼び出しなしで利用できます。
+- 特徴: Responses API では web search や computer use などのツールを利用でき、Multi-agent（ベータ）でサブエージェントに作業を委任できます。
 
 ### GPT-6.1 Terra
 
@@ -159,7 +161,7 @@ GPT-6 フラッグシップ以外の上位版・小型版・旧世代の汎用�
 
 | モデル ID | 状態 |
 | --- | --- |
-| `gpt-6-sol` | 提供中（GPT-6.1 Sol より前のモデル） |
+| `gpt-6-astra`, `gpt-6.1-sol`, `gpt-6-sol` | 提供中（GPT-6.2 より前のモデル） |
 | `gpt-5.5`, `gpt-5.5-pro` | 提供中 |
 | `gpt-5.4`, `gpt-5.4-pro`, `gpt-5.4-mini`, `gpt-5.4-nano` | 提供中 |
 | `gpt-5.2`, `gpt-5.2-pro`, `gpt-5.1`, `gpt-5`, `gpt-5-mini`, `gpt-5-nano`, `gpt-5-pro` | 提供中 |
@@ -545,8 +547,8 @@ ChatGPT で使われる Instant モデルのエイリアスです。基盤モデ
 
 | モデル | 短コンテキスト入力 | 短コンテキストキャッシュ入力 | 短コンテキスト出力 | 長コンテキスト入力 | 長コンテキストキャッシュ入力 | 長コンテキスト出力 |
 | --- | --- | --- | --- | --- | --- | --- |
-| GPT-6 Astra (`gpt-6-astra`) | $10.00 | $1.00 | $50.00 | $20.00 | $2.00 | $75.00 |
-| GPT-6.1 Sol (`gpt-6.1-sol`) | $2.00 | $0.10 | $10.00 | $4.00 | $0.20 | $15.00 |
+| GPT-6.2 Astra (`gpt-6.2-astra`) | $8.00 | $0.40 | $40.00 | $16.00 | $0.80 | $60.00 |
+| GPT-6.2 Sol (`gpt-6.2-sol`) | $2.00 | $0.10 | $10.00 | $4.00 | $0.20 | $15.00 |
 | GPT-6.1 Terra (`gpt-6.1-terra`) | $1.00 | $0.05 | $5.00 | $2.00 | $0.10 | $7.50 |
 | GPT-6 Luna (`gpt-6-luna`) | $0.10 | $0.01 | $0.50 | $0.20 | $0.02 | $0.75 |
 
@@ -554,6 +556,8 @@ ChatGPT で使われる Instant モデルのエイリアスです。基盤モデ
 
 | モデル | 短コンテキスト入力 | 短コンテキストキャッシュ入力 | 短コンテキスト出力 | 長コンテキスト入力 | 長コンテキストキャッシュ入力 | 長コンテキスト出力 |
 | --- | --- | --- | --- | --- | --- | --- |
+| GPT-6 Astra (`gpt-6-astra`) | $10.00 | $1.00 | $50.00 | $20.00 | $2.00 | $75.00 |
+| GPT-6.1 Sol (`gpt-6.1-sol`) | $2.00 | $0.10 | $10.00 | $4.00 | $0.20 | $15.00 |
 | GPT-5.6 Sol (`gpt-5.6`) | $4.00 | $0.40 | $20.00 | $8.00 | $0.80 | $30.00 |
 | GPT-5.6 Terra | $2.00 | $0.20 | $12.00 | $4.00 | $0.40 | $18.00 |
 | GPT-5.6 Luna | $0.20 | $0.02 | $1.20 | $0.40 | $0.04 | $1.80 |
@@ -692,7 +696,8 @@ OpenAI の API レートは組織ごとに設定された Usage tier に基づ�
 ## 参考
 
 - OpenAI Models: https://developers.openai.com/api/docs/models
-- GPT-6.1 Sol: https://developers.openai.com/api/docs/models/gpt-6.1-sol
+- GPT-6.2 Astra: https://developers.openai.com/api/docs/models/gpt-6.2-astra
+- GPT-6.2 Sol: https://developers.openai.com/api/docs/models/gpt-6.2-sol
 - Model guidance: https://developers.openai.com/api/docs/guides/latest-model
 - Realtime prompting guide: https://developers.openai.com/api/docs/guides/realtime-models-prompting
 - Realtime translation: https://developers.openai.com/api/docs/guides/realtime-translation
