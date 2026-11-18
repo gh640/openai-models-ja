@@ -696,7 +696,8 @@ OpenAI の API レートは組織ごとに設定された Usage tier に基づ�
 ## 参考
 
 - OpenAI Models: https://developers.openai.com/api/docs/models
-- GPT-6.1 Sol: https://developers.openai.com/api/docs/models/gpt-6.1-sol
+- GPT-6.2 Astra: https://developers.openai.com/api/docs/models/gpt-6.2-astra
+- GPT-6.2 Sol: https://developers.openai.com/api/docs/models/gpt-6.2-sol
 - Model guidance: https://developers.openai.com/api/docs/guides/latest-model
 - Realtime prompting guide: https://developers.openai.com/api/docs/guides/realtime-models-prompting
 - Realtime translation: https://developers.openai.com/api/docs/guides/realtime-translation
