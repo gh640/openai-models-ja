@@ -1,6 +1,6 @@
 # OpenAI API モデル一覧（日本語）
 
-**最終更新日: 2026/11/20**
+**最終更新日: 2026/11/28**
 
 [OpenAI 公式 Models ページ](https://developers.openai.com/api/docs/models) をもとに OpenAI が提供するモデルについて日本語でまとめています。料金や仕様は変更される可能性があるため最新情報は必ず公式サイトでご確認ください。
 
@@ -14,6 +14,7 @@
 - [特化モデル](#特化モデル)
   - [OpenAI Daybreak](#openai-daybreak)
   - [Life sciences](#life-sciences)
+  - [医療](#医療)
   - [画像](#画像)
   - [動画](#動画)
   - [リアルタイム・音声](#リアルタイム音声)
@@ -39,7 +40,7 @@ OpenAI API は多様なワークロードに対応する複数のモデル群で
 | --- | --- |
 | フラッグシップモデル | 公式 Models ページの Flagship models に掲載されている GPT-6 シリーズの汎用モデル。 |
 | その他の汎用モデル | フラッグシップ以外の上位版・小型版・旧世代の汎用モデル。 |
-| 特化モデル | OpenAI Daybreak、Life sciences、画像、動画、Realtime、音声生成、文字起こし、コーディング、ディープリサーチ、オープンウェイト、Embedding、ChatGPT 向けモデル。 |
+| 特化モデル | OpenAI Daybreak、Life sciences、医療、画像、動画、Realtime、音声生成、文字起こし、コーディング、ディープリサーチ、オープンウェイト、Embedding、ChatGPT 向けモデル。 |
 | その他 | 公式の More models 相当の既存モデルや、非推奨モデル。 |
 
 ## フラッグシップモデル
@@ -169,7 +170,7 @@ GPT-6 フラッグシップ以外の上位版・小型版・旧世代の汎用�
 
 ## 特化モデル
 
-公式 Models ページの Specialized models に掲載されている、用途別のモデル群です。
+公式 Models ページや API Changelog に掲載されている、用途別のモデル群です。
 
 ### OpenAI Daybreak
 
@@ -211,6 +212,14 @@ GPT-6 フラッグシップ以外の上位版・小型版・旧世代の汎用�
 - 価格（1M トークンあたり）: 入力 $5.00 / キャッシュ入力 $0.50 / 出力 $25.00
 - 課金開始日: 2026/10/05
 - キャッシュ書き込み料金: 対象外
+
+### 医療
+
+臨床上の質問や医学的根拠の整理に向けて調整されたモデル設定です。 Responses API (`v1/responses`) で利用でき、Web 検索を有効にすると専用の医療情報インデックスを検索します。
+
+- モデル ID: `gpt-6.2-astra-healthcare`、`gpt-6.2-sol-healthcare`、`gpt-6-astra-healthcare`、`gpt-6.1-sol-healthcare`
+- 利用条件: API 組織で利用でき、ChatGPT for Healthcare や ChatGPT Enterprise のワークスペースは不要です。
+- 注意: 医療専門家の判断に代わるものではありません。保護対象保健情報 (PHI) を処理するには、OpenAI との適用対象の Business Associate Agreement (BAA) に加え、アカウントとツールの設定要件を満たす必要があります。
 
 ### 画像
 
@@ -649,9 +658,14 @@ Sora 2 系モデルは 2026/09/24 に提供終了したため、価格を掲載�
 
 | カテゴリ | モデル | 入力 | キャッシュ入力 | 出力 |
 | --- | --- | --- | --- | --- |
+| 医療 | gpt-6.2-astra-healthcare | $8.00 | $0.40 | $40.00 |
+| 医療 | gpt-6.2-sol-healthcare | $2.00 | $0.10 | $10.00 |
+| 医療 | gpt-6-astra-healthcare | $10.00 | $1.00 | $50.00 |
+| 医療 | gpt-6.1-sol-healthcare | $2.00 | $0.10 | $10.00 |
 | ChatGPT | chat-latest | $5.00 | $0.50 | $30.00 |
 | Codex | gpt-5.3-codex | $1.75 | $0.175 | $14.00 |
 
+- 医療向け 4 モデルは、短コンテキストでの Standard のプロモーション料金（100 万トークンあたり）です。公式 Pricing では少なくとも 2026/12/31 まで適用されると案内されています。
 - `gpt-5.5` は 272K を超える入力トークンのプロンプトで、セッション全体に入力 2x / 出力 1.5x の長コンテキスト価格が適用されます。
 - `gpt-5.4` と `gpt-5.4-pro` には長コンテキスト価格があります。
 - Regional processing（ data residency ）エンドポイントでは、`gpt-5.5` / `gpt-5.5-pro` / `gpt-5.4` / `gpt-5.4-mini` / `gpt-5.4-nano` / `gpt-5.4-pro` に 10% の割増料金が適用されます。
@@ -716,5 +730,7 @@ OpenAI の API レートは組織ごとに設定された Usage tier に基づ�
 - Realtime prompting guide: https://developers.openai.com/api/docs/guides/realtime-models-prompting
 - Realtime translation: https://developers.openai.com/api/docs/guides/realtime-translation
 - Realtime transcription: https://developers.openai.com/api/docs/guides/realtime-transcription
+- Healthcare model configurations: https://help.openai.com/en/articles/20001656-healthcare-model-configurations-in-the-openai-api
+- API Changelog: https://developers.openai.com/api/docs/changelog
 - Pricing: https://developers.openai.com/api/docs/pricing
 - Deprecations: https://developers.openai.com/api/docs/deprecations
